@@ -1,0 +1,5 @@
+<svg width="1200" height="180" viewBox="0 0 1200 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">CDL journey route line</title>
+  <desc id="desc">Amber route line used to represent the CDL training journey.</desc>
+  <path d="M30 122 C184 38 333 34 470 112 C624 199 750 119 859 68 C978 12 1080 47 1170 122" fill="none" stroke="#F5A524" stroke-width="9" stroke-linecap="round" stroke-dasharray="24 24"/>
+</svg>

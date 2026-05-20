@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #f8f8f5;
+}
+
+body {
+  min-height: 100dvh;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(245, 165, 36, 0.08), transparent 24rem),
+    linear-gradient(180deg, #f8f8f5 0%, #f2f4f7 100%);
+  color: #0a0e14;
+  font-family: var(--font-body), sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #f5a524;
+  color: #0a0e14;
+}
+
+a {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.grain::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.clip-slant {
+  clip-path: polygon(0 0, 100% 0, 94% 100%, 0 100%);
+}
+
+.truck-rig {
+  perspective: 1200px;
+  contain: layout paint;
+}
+
+.truck-road-plane {
+  transform: rotateX(64deg) translateZ(-80px);
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.route-draw {
+  stroke-dasharray: 24 24;
+  animation: route-draw 2.4s var(--ease-out-expo) both;
+}
+
+@keyframes route-draw {
+  from {
+    stroke-dashoffset: 980;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.focus-ring {
+  @apply focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 focus-visible:ring-offset-2 focus-visible:ring-offset-chrome;
+}
+
+.input-control {
+  @apply min-h-11 w-full rounded-sm border border-asphalt-900/15 bg-chrome px-3 py-3 text-base text-asphalt-900 shadow-sm outline-none transition placeholder:text-asphalt-500 focus:border-amber-500 focus:ring-2 focus:ring-amber-500/30;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}

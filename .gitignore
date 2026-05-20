@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment files
+.env
+.env*.local
+
+# Build/test artifacts
+coverage/
+*.tsbuildinfo
+
+# Logs
+*.log
+ntds-start.log
+preview-*.log
+preview-*.err.log
+
+# Local preview and browser-capture artifacts
+tmp-*/
+tmp-*.png
+previews/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db

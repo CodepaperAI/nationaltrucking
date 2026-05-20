@@ -1,0 +1,17 @@
+<svg width="1200" height="520" viewBox="0 0 1200 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Side-view tractor trailer training illustration</title>
+  <desc id="desc">Minimal side-view truck illustration with amber training highlights.</desc>
+  <rect width="1200" height="520" fill="#F8F8F5"/>
+  <path d="M156 308h552v-126h318l66 126h42v56H156z" fill="#12161D"/>
+  <path d="M744 209h217l42 81H744z" fill="#252B36"/>
+  <path d="M786 229h90v52h-90z" fill="#8A93A3"/>
+  <path d="M897 229h46l27 52h-73z" fill="#8A93A3"/>
+  <path d="M189 204h483v35H189z" fill="#F5A524"/>
+  <circle cx="314" cy="372" r="70" fill="#0A0E14"/>
+  <circle cx="314" cy="372" r="34" fill="#F8F8F5"/>
+  <circle cx="838" cy="372" r="70" fill="#0A0E14"/>
+  <circle cx="838" cy="372" r="34" fill="#F8F8F5"/>
+  <circle cx="1006" cy="372" r="70" fill="#0A0E14"/>
+  <circle cx="1006" cy="372" r="34" fill="#F8F8F5"/>
+  <path d="M116 431h970" stroke="#F5A524" stroke-width="8" stroke-dasharray="42 34" stroke-linecap="round"/>
+</svg>

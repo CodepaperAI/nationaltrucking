@@ -1,0 +1,17 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "programs": "Programs",
+    "studentTips": "Student Tips",
+    "jobPlacement": "Job Placement",
+    "financialAid": "Financial Aid",
+    "contact": "Contact"
+  },
+  "cta": {
+    "book": "Book Free Consultation",
+    "call": "Call 510.455.6399",
+    "spanish": "Se Habla Español"
+  },
+  "_todo": "TODO: confirm Spanish translation with client. English fallback is intentional for v1."
+}
