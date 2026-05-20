@@ -22,6 +22,41 @@ export const site = {
 };
 
 export const assets = {
+  logo: {
+    id: 'brand-logo',
+    src: '/img/logo.png',
+    alt: 'National Truck Driving School logo',
+    width: 512,
+    height: 228
+  },
+  bppeSeal: {
+    id: 'bppe-seal',
+    src: '/img/bppe.jpg',
+    alt: 'BPPE approval seal',
+    width: 300,
+    height: 300
+  },
+  dcaEmblem: {
+    id: 'dca-emblem',
+    src: '/img/dca-emblem.png',
+    alt: 'Department of Consumer Affairs accreditation emblem',
+    width: 300,
+    height: 300
+  },
+  paymentCards: {
+    id: 'payment-cards',
+    src: '/img/payment-visa-mastercard.png',
+    alt: 'Visa and Mastercard accepted',
+    width: 480,
+    height: 208
+  },
+  routeLine: {
+    id: 'route-line',
+    src: '/img/route-line.svg',
+    alt: '',
+    width: 1200,
+    height: 180
+  },
   heroTruck: {
     id: 'hero-01',
     src: '/img/official-slide-1.jpg',

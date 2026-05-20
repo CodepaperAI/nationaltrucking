@@ -238,8 +238,8 @@ export function Accreditation() {
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="flex gap-4">
-            <Image src="/img/bppe.jpg" alt="BPPE approval seal" width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
-            <Image src="/img/dca-emblem.png" alt="Department of Consumer Affairs accreditation emblem" width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
+            <Image src={assets.bppeSeal.src} alt={assets.bppeSeal.alt} width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
+            <Image src={assets.dcaEmblem.src} alt={assets.dcaEmblem.alt} width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
           </div>
           <div>
             <SectionKicker dark>Accreditation</SectionKicker>
@@ -444,7 +444,7 @@ export function JourneyTimeline() {
         <SectionKicker>CDL journey</SectionKicker>
         <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">Six stops to the license.</h2>
         <div className="relative mt-12">
-          <Image src="/img/route-line.svg" alt="" width={1200} height={180} className="absolute left-0 top-10 hidden w-full opacity-80 lg:block" aria-hidden="true" />
+          <Image src={assets.routeLine.src} alt={assets.routeLine.alt} width={assets.routeLine.width} height={assets.routeLine.height} className="absolute left-0 top-10 hidden w-full opacity-80 lg:block" aria-hidden="true" />
           <div className="grid gap-4 lg:grid-cols-6">
             {journeySteps.map(([title, body], index) => (
               <article key={title} className="relative rounded-sm border border-asphalt-900/10 bg-chrome p-5 shadow-sm">

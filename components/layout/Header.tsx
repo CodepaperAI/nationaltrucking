@@ -6,7 +6,7 @@ import { usePathname } from 'next/navigation';
 import { Menu, Phone, X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
-import { site } from '@/content/site';
+import { assets, site } from '@/content/site';
 import { trackEvent } from '@/lib/analytics';
 import { cn } from '@/lib/utils';
 
@@ -44,7 +44,7 @@ export function Header() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-sm" aria-label="National Truck Driving School home">
           <span className="relative flex h-12 w-32 items-center">
-            <Image src="/img/logo.png" alt="National Truck Driving School logo" fill sizes="128px" className="object-contain" priority />
+            <Image src={assets.logo.src} alt={assets.logo.alt} fill sizes="128px" className="object-contain" priority />
           </span>
         </Link>
 

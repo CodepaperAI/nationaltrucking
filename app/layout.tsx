@@ -8,7 +8,7 @@ import { Header } from '@/components/layout/Header';
 import { Providers } from '@/components/layout/Providers';
 import { SkipToContent } from '@/components/layout/SkipToContent';
 import { StickyMobileCTA } from '@/components/layout/StickyMobileCTA';
-import { seoPages, site } from '@/content/site';
+import { assets, seoPages, site } from '@/content/site';
 import { absoluteUrl } from '@/lib/utils';
 import './globals.css';
 
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     siteName: site.name,
     images: [
       {
-        url: '/img/hero-road-sunset.png',
+        url: assets.heroRoadSunset.src,
         width: 1200,
         height: 630,
-        alt: 'National Truck Driving School training truck on an open road at sunset'
+        alt: assets.heroRoadSunset.alt
       }
     ],
     locale: 'en_US',
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: seoPages.home.title,
     description: seoPages.home.description,
-    images: ['/img/hero-road-sunset.png']
+    images: [assets.heroRoadSunset.src]
   }
 };
 
@@ -56,8 +56,8 @@ const jsonLd = {
   name: site.name,
   alternateName: site.shortName,
   url: 'https://www.nationaltruckschool.com',
-  logo: absoluteUrl('/img/logo.png'),
-  image: absoluteUrl('/img/hero-road-sunset.png'),
+  logo: absoluteUrl(assets.logo.src),
+  image: absoluteUrl(assets.heroRoadSunset.src),
   telephone: '+1-510-455-6399',
   priceRange: '$$',
   address: {

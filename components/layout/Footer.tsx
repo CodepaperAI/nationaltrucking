@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { Container } from '@/components/ui/Container';
-import { site } from '@/content/site';
+import { assets, site } from '@/content/site';
 
 const footerNav = [
   ['Home', '/'],
@@ -19,14 +19,14 @@ export function Footer() {
       <Container>
         <div className="grid gap-10 lg:grid-cols-[1.25fr_0.85fr_1fr]">
           <div>
-            <Image src="/img/logo.png" alt="National Truck Driving School logo" width={180} height={80} className="mb-6 h-auto w-44 rounded-sm bg-chrome p-2" />
+            <Image src={assets.logo.src} alt={assets.logo.alt} width={180} height={80} className="mb-6 h-auto w-44 rounded-sm bg-chrome p-2" />
             <p className="max-w-sm text-base leading-relaxed text-steel-300">
               Straight-forward CDL training for the San Francisco Bay Area. Class A, Class B, job placement assistance, and funding guidance.
             </p>
             <div className="mt-6 flex items-center gap-4">
-              <Image src="/img/bppe.jpg" alt="BPPE approval seal" width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
-              <Image src="/img/dca-emblem.png" alt="Department of Consumer Affairs accreditation emblem" width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
-              <Image src="/img/payment-visa-mastercard.png" alt="Visa and Mastercard accepted" width={120} height={52} className="h-12 w-auto rounded-sm bg-chrome object-contain p-1" />
+              <Image src={assets.bppeSeal.src} alt={assets.bppeSeal.alt} width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
+              <Image src={assets.dcaEmblem.src} alt={assets.dcaEmblem.alt} width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
+              <Image src={assets.paymentCards.src} alt={assets.paymentCards.alt} width={120} height={52} className="h-12 w-auto rounded-sm bg-chrome object-contain p-1" />
             </div>
           </div>
 
