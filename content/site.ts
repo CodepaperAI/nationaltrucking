@@ -1,4 +1,4 @@
-import type { AssetSlot, FundingOption, PartnerCompany, Program, SeoPage, StudentTip, Testimonial } from './types';
+import type { AssetSlot, FundingOption, PartnerCompany, Program, SeoPage, StudentTip, Testimonial, VideoReel } from './types';
 
 export const site = {
   name: 'National Truck Driving School',
@@ -308,6 +308,27 @@ export const programs: Program[] = [
     summary: 'Training for buses, delivery trucks, dump trucks, and local jobs.',
     image: assets.students,
     facts: ['Commercial Class B with Passenger endorsement', 'Defensive driving techniques', 'Practice for DMV testing']
+  }
+];
+
+export const homepageReels: VideoReel[] = [
+  {
+    id: 'training-reel-1',
+    eyebrow: 'Reel 01 / yard practice',
+    title: 'Watch the training before you step into the yard.',
+    body: 'A quick look at the real practice rhythm: instruction, repetition, and confidence building around commercial vehicles.',
+    src: '/video/training-reel-1.mp4',
+    poster: assets.yard,
+    durationLabel: 'Student training preview'
+  },
+  {
+    id: 'training-reel-2',
+    eyebrow: 'Reel 02 / road ready',
+    title: 'See what progress looks like from the driver seat.',
+    body: 'Use this space for the most inspiring clip: road time, instructor guidance, or a student celebrating a passed test.',
+    src: '/video/training-reel-2.mp4',
+    poster: assets.heroRoadSunset,
+    durationLabel: 'Road training preview'
   }
 ];
 

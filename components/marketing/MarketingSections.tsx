@@ -14,8 +14,8 @@ import {
   Languages,
   MapPin,
   Phone,
+  PlayCircle,
   ShieldCheck,
-  Sparkles,
   Truck,
   WalletCards
 } from 'lucide-react';
@@ -25,7 +25,7 @@ import { ImageFrame } from '@/components/ui/ImageFrame';
 import { Marquee } from '@/components/ui/Marquee';
 import { NumberCounter } from '@/components/ui/NumberCounter';
 import { SectionKicker } from '@/components/ui/SectionKicker';
-import { assets, fundingOptions, journeySteps, partners, programs, reasons, site, studentTips, testimonials, whyUs } from '@/content/site';
+import { assets, fundingOptions, homepageReels, journeySteps, partners, programs, reasons, site, studentTips, testimonials, whyUs } from '@/content/site';
 import type { AssetSlot, FundingOption } from '@/content/types';
 import { LeadForm } from './LeadForm';
 import { TestimonialCarousel } from './TestimonialCarousel';
@@ -71,6 +71,63 @@ export function StatRail({ compact = false }: { compact?: boolean }) {
               <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-steel-300">{label}</p>
             </div>
           ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
+export function TrainingReelsSection() {
+  return (
+    <section className="overflow-hidden bg-road py-24 text-chrome">
+      <Container>
+        <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
+          <div className="max-w-xl">
+            <SectionKicker dark>01 / training in action</SectionKicker>
+            <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">
+              See the yard before you arrive.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-steel-200">
+              Short reel previews help future students picture the first day: the trucks, the instruction, and the confidence that builds with each practice run.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-steel-300">
+              <span className="rounded-sm border border-chrome/15 px-3 py-2">Real training clips</span>
+              <span className="rounded-sm border border-chrome/15 px-3 py-2">Muted preview</span>
+              <span className="rounded-sm border border-chrome/15 px-3 py-2">Tap to watch</span>
+            </div>
+          </div>
+
+          <div className="grid gap-5 sm:grid-cols-2">
+            {homepageReels.map((reel, index) => (
+              <article
+                key={reel.id}
+                className={`group rounded-sm border border-chrome/12 bg-chrome/5 p-3 shadow-hard backdrop-blur ${index === 1 ? 'lg:mt-12' : ''}`}
+              >
+                <div className="relative aspect-[9/16] overflow-hidden rounded-sm bg-asphalt-900">
+                  <video
+                    className="size-full object-cover"
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={reel.poster.src}
+                    aria-label={reel.title}
+                  >
+                    <source src={reel.src} type="video/mp4" />
+                  </video>
+                  <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-asphalt-900/82 to-transparent p-4">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300">{reel.durationLabel}</span>
+                    <PlayCircle className="size-7 text-chrome drop-shadow" />
+                  </div>
+                </div>
+                <div className="px-2 pb-2 pt-5">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">{reel.eyebrow}</p>
+                  <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-chrome">{reel.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-steel-300">{reel.body}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </Container>
     </section>

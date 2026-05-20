@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Accreditation, LeadCTA, PartnerMarquee, PillarGrid, ProgramPreview, StatRail, TestimonialsSection, WhyUsRibbon } from '@/components/marketing/MarketingSections';
+import { Accreditation, LeadCTA, PartnerMarquee, PillarGrid, ProgramPreview, StatRail, TestimonialsSection, TrainingReelsSection, WhyUsRibbon } from '@/components/marketing/MarketingSections';
 import { HeroHighway } from '@/components/marketing/HeroHighway';
 import { seoPages } from '@/content/site';
 
@@ -14,6 +14,7 @@ export default function HomePage() {
     <>
       <HeroHighway />
       <StatRail />
+      <TrainingReelsSection />
       <PillarGrid />
       <WhyUsRibbon />
       <ProgramPreview />

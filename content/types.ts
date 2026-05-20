@@ -48,6 +48,16 @@ export type Testimonial = {
   cdlClass?: 'Class A' | 'Class B' | 'Both';
 };
 
+export type VideoReel = {
+  id: string;
+  eyebrow: string;
+  title: string;
+  body: string;
+  src: string;
+  poster: AssetSlot;
+  durationLabel: string;
+};
+
 export type PartnerCompany = {
   name: string;
   url: string;
