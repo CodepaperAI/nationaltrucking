@@ -24,6 +24,7 @@ import { Container } from '@/components/ui/Container';
 import { ImageFrame } from '@/components/ui/ImageFrame';
 import { Marquee } from '@/components/ui/Marquee';
 import { NumberCounter } from '@/components/ui/NumberCounter';
+import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionKicker } from '@/components/ui/SectionKicker';
 import { assets, fundingOptions, homepageReels, journeySteps, partners, programs, reasons, site, studentTips, testimonials, whyUs } from '@/content/site';
 import type { AssetSlot, FundingOption } from '@/content/types';
@@ -77,12 +78,55 @@ export function StatRail({ compact = false }: { compact?: boolean }) {
   );
 }
 
+export function TrainingPathRail() {
+  const paths = [
+    [Truck, 'Class A CDL', 'Tractor-trailer training with 115 behind-the-wheel hours.', '/programs/class-a'],
+    [GraduationCap, 'Class B + Passenger', 'Bus, local delivery, and passenger endorsement preparation.', '/programs/class-b'],
+    [WalletCards, 'Funding Help', '$1,000 down options, vouchers, and payment guidance.', '/financial-aid'],
+    [BriefcaseBusiness, 'Job Placement', 'Resume support and hiring connections after training.', '/job-placement']
+  ] as const;
+
+  return (
+    <section className="relative overflow-hidden bg-road text-chrome">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(245,165,36,0.14),transparent_28rem)]" aria-hidden="true" />
+      <Container className="relative">
+        <div className="grid overflow-hidden border-x border-chrome/10 bg-chrome/10 lg:grid-cols-4">
+          {paths.map(([Icon, title, body, href], index) => (
+            <ScrollReveal key={title} delay={index * 0.08} y={34} className="min-h-full">
+              <Link
+                href={href}
+                className="group focus-ring relative isolate flex min-h-[260px] flex-col overflow-hidden bg-road p-6 transition duration-300 ease-out hover:-translate-y-1 hover:bg-[#111923]"
+              >
+                <span
+                  className="pointer-events-none absolute -bottom-8 -right-2 z-[-1] font-display text-[9rem] leading-none text-chrome/[0.045] transition duration-500 group-hover:translate-x-2 group-hover:text-amber-400/[0.08]"
+                  aria-hidden="true"
+                >
+                  {String(index + 1).padStart(2, '0')}
+                </span>
+                <span className="mb-10 inline-flex size-14 items-center justify-center rounded-sm border border-chrome/10 bg-chrome/5 text-amber-400 transition duration-300 group-hover:-translate-y-1 group-hover:bg-amber-400 group-hover:text-asphalt-900">
+                  <Icon className="size-7" />
+                </span>
+                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">0{index + 1} / training path</p>
+                <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide">{title}</h2>
+                <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-steel-300">{body}</p>
+                <span className="mt-auto pt-8 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-chrome transition group-hover:text-amber-400">
+                  Open path
+                </span>
+              </Link>
+            </ScrollReveal>
+          ))}
+        </div>
+      </Container>
+    </section>
+  );
+}
+
 export function TrainingReelsSection() {
   return (
     <section className="overflow-hidden bg-road py-24 text-chrome">
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
-          <div className="max-w-xl">
+          <ScrollReveal className="max-w-xl">
             <SectionKicker dark>01 / training in action</SectionKicker>
             <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">
               See the yard before you arrive.
@@ -95,37 +139,36 @@ export function TrainingReelsSection() {
               <span className="rounded-sm border border-chrome/15 px-3 py-2">Muted preview</span>
               <span className="rounded-sm border border-chrome/15 px-3 py-2">Tap to watch</span>
             </div>
-          </div>
+          </ScrollReveal>
 
           <div className="grid gap-5 sm:grid-cols-2">
             {homepageReels.map((reel, index) => (
-              <article
-                key={reel.id}
-                className={`group rounded-sm border border-chrome/12 bg-chrome/5 p-3 shadow-hard backdrop-blur ${index === 1 ? 'lg:mt-12' : ''}`}
-              >
-                <div className="relative aspect-[9/16] overflow-hidden rounded-sm bg-asphalt-900">
-                  <video
-                    className="size-full object-cover"
-                    controls
-                    muted
-                    playsInline
-                    preload="metadata"
-                    poster={reel.poster.src}
-                    aria-label={reel.title}
-                  >
-                    <source src={reel.src} type="video/mp4" />
-                  </video>
-                  <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-asphalt-900/82 to-transparent p-4">
-                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300">{reel.durationLabel}</span>
-                    <PlayCircle className="size-7 text-chrome drop-shadow" />
+              <ScrollReveal key={reel.id} delay={0.12 + index * 0.12} y={44} className={index === 1 ? 'lg:mt-12' : undefined}>
+                <article className="group rounded-sm border border-chrome/12 bg-chrome/5 p-3 shadow-hard backdrop-blur transition duration-300 ease-out hover:-translate-y-1 hover:border-amber-400/45 hover:bg-chrome/[0.075]">
+                  <div className="relative aspect-[9/16] overflow-hidden rounded-sm bg-asphalt-900">
+                    <video
+                      className="size-full object-cover transition duration-700 group-hover:scale-[1.025]"
+                      controls
+                      muted
+                      playsInline
+                      preload="metadata"
+                      poster={reel.poster.src}
+                      aria-label={reel.title}
+                    >
+                      <source src={reel.src} type="video/mp4" />
+                    </video>
+                    <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-asphalt-900/82 to-transparent p-4">
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300">{reel.durationLabel}</span>
+                      <PlayCircle className="size-7 text-chrome drop-shadow transition duration-300 group-hover:scale-110 group-hover:text-amber-300" />
+                    </div>
                   </div>
-                </div>
-                <div className="px-2 pb-2 pt-5">
-                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">{reel.eyebrow}</p>
-                  <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-chrome">{reel.title}</h3>
-                  <p className="mt-3 text-sm leading-relaxed text-steel-300">{reel.body}</p>
-                </div>
-              </article>
+                  <div className="px-2 pb-2 pt-5">
+                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">{reel.eyebrow}</p>
+                    <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-chrome">{reel.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-steel-300">{reel.body}</p>
+                  </div>
+                </article>
+              </ScrollReveal>
             ))}
           </div>
         </div>
