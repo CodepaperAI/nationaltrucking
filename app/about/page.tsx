@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { AboutPromise, InstructorGrid, LeadCTA, PageHero, StatRail, VisitCard } from '@/components/marketing/MarketingSections';
+import { AboutPromise, InstructorGrid, LeadCTA, PageHero, VisitCard } from '@/components/marketing/MarketingSections';
 import { assets, seoPages } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -18,7 +18,6 @@ export default function AboutPage() {
         image={assets.mirrorInstructor}
       />
       <AboutPromise />
-      <StatRail compact />
       <InstructorGrid />
       <VisitCard />
       <LeadCTA />

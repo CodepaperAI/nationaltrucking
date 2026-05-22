@@ -23,7 +23,6 @@ import { Button } from '@/components/ui/Button';
 import { Container } from '@/components/ui/Container';
 import { ImageFrame } from '@/components/ui/ImageFrame';
 import { Marquee } from '@/components/ui/Marquee';
-import { NumberCounter } from '@/components/ui/NumberCounter';
 import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionKicker } from '@/components/ui/SectionKicker';
 import { assets, fundingOptions, homepageReels, journeySteps, partners, programs, reasons, site, studentTips, testimonials, whyUs } from '@/content/site';
@@ -34,7 +33,7 @@ import { EligibilityCheck } from './EligibilityCheck';
 import { ImageDepthStack } from './ImageDepthStack';
 
 const iconMap = {
-  loan: WalletCards,
+  wallet: WalletCards,
   briefcase: BriefcaseBusiness,
   heart: HeartHandshake,
   file: FileCheck2,
@@ -45,45 +44,12 @@ const imageStyle = (asset: AssetSlot): CSSProperties | undefined => (asset.posit
 const isPanorama = (asset: AssetSlot) => asset.width / asset.height >= 2.4;
 const photoAspectClass = (asset: AssetSlot, fallback = 'aspect-[16/10]') => (isPanorama(asset) ? 'aspect-[1858/563]' : fallback);
 
-export function StatRail({ compact = false }: { compact?: boolean }) {
-  const stats = [
-    ['1,200+', '5-Star reviews', 1200, '+', ''],
-    ['115', 'Hours behind the wheel', 115, '', ''],
-    ['45', 'Hours classroom instruction', 45, '', ''],
-    ['4.5', 'Weeks full-time', 4.5, '', ''],
-    ['$1,000', 'Down to get started', 1000, '', '$'],
-    ['0', 'Credit check required', 0, '', '']
-  ] as const;
-  const shown = compact ? stats.slice(0, 4) : stats;
-
-  return (
-    <section className="bg-asphalt-900 py-8 text-chrome">
-      <Container>
-        <div className="grid grid-cols-2 gap-px overflow-hidden rounded-sm bg-chrome/10 lg:grid-cols-4">
-          {shown.slice(0, 4).map(([, label, value, suffix, prefix]) => (
-            <div key={label} className="bg-asphalt-900 p-5 sm:p-7">
-              <NumberCounter
-                value={value}
-                suffix={suffix}
-                prefix={prefix}
-                decimals={value === 4.5 ? 1 : 0}
-                className="font-display text-6xl uppercase leading-none tracking-wide text-amber-400"
-              />
-              <p className="mt-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-steel-300">{label}</p>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </section>
-  );
-}
-
 export function TrainingPathRail() {
   const paths = [
-    [Truck, 'Class A CDL', 'Tractor-trailer training with 115 behind-the-wheel hours.', '/programs/class-a'],
+    [Truck, 'Class A CDL', 'Tractor-trailer training with hands-on behind-the-wheel practice.', '/programs/class-a'],
     [GraduationCap, 'Class B + Passenger', 'Bus, local delivery, and passenger endorsement preparation.', '/programs/class-b'],
-    [WalletCards, 'Funding Help', '$1,000 down options, vouchers, and payment guidance.', '/financial-aid'],
-    [BriefcaseBusiness, 'Job Placement', 'Resume support and hiring connections after training.', '/job-placement']
+    [WalletCards, 'Payment Options', 'Installment review and agency paperwork guidance before enrollment.', '/financial-aid'],
+    [BriefcaseBusiness, 'Job Placement Assistance', 'Resume support and hiring connections after training.', '/job-placement']
   ] as const;
 
   return (
@@ -180,7 +146,7 @@ export function TrainingReelsSection() {
 export function PillarGrid() {
   const pillars = [
     [assets.yard, 'Get Your Commercial License', 'Class A & Class B programs built to pass on the first try.', 'Explore Programs', '/programs'],
-    [assets.placement, "We'll Help You Get Hired", 'We place graduates with Swift, England, Gordon, Central Refrigerated, and more.', 'Job Placement', '/job-placement'],
+    [assets.placement, "We'll Help You Get Hired", 'We place graduates with Swift, England, Gordon, Central Refrigerated, and more.', 'Job Placement Assistance', '/job-placement'],
     [assets.sideMirror, 'Free Consultation', 'Talk to an enrollment advisor today. Day, evening, and weekend classes.', 'Contact Us', '/contact']
   ] as const;
 
@@ -245,9 +211,9 @@ export function WhyUsRibbon() {
 
 export function ProgramPreview() {
   const beats = [
-    [assets.preTrip, '115 hours behind the wheel.', 'Real trucks. Real yards. Bay Area roads.'],
-    [assets.classroom, '45 hours of classroom.', 'Federal Motor Carrier Safety Rules, defensive driving, pre-trip inspection.'],
-    [assets.graduate, 'Full-time graduates finish in about 4.5 weeks.', "Part-time options if life doesn't work that way."]
+    [assets.preTrip, 'Behind-the-wheel practice.', 'Real trucks. Real yards. Bay Area roads.'],
+    [assets.classroom, 'Classroom instruction.', 'Federal Motor Carrier Safety Rules, defensive driving, pre-trip inspection.'],
+    [assets.graduate, 'Full-time and part-time schedules.', "Pick the rhythm that fits your life."]
   ] as const;
 
   return (
@@ -265,7 +231,7 @@ export function ProgramPreview() {
           <div className="flex flex-col justify-center">
             <SectionKicker>01 / our training</SectionKicker>
             <h2 className="mt-4 max-w-2xl font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">
-              From your first cone to your CDL card.
+              From your first cone to your CDL license.
             </h2>
             <div className="mt-10 grid gap-4">
               {beats.map(([, title, copy], index) => (
@@ -294,10 +260,10 @@ export function TestimonialsSection() {
           <div>
             <SectionKicker>02 / what grads say</SectionKicker>
             <h2 className="mt-4 max-w-3xl font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">
-              1,200+ five-star reviews and counting.
+              Words from graduates who passed.
             </h2>
           </div>
-          <p className="max-w-md text-asphalt-700">Real graduate words, rebuilt into a tighter carousel instead of a wall of text.</p>
+          <p className="max-w-md text-asphalt-700">Real graduate stories, rebuilt into a tighter carousel instead of a wall of text.</p>
         </div>
         <TestimonialCarousel testimonials={testimonials} />
       </Container>
@@ -339,12 +305,11 @@ export function Accreditation() {
         <div className="grid items-center gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <div className="flex gap-4">
             <Image src={assets.bppeSeal.src} alt={assets.bppeSeal.alt} width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
-            <Image src={assets.dcaEmblem.src} alt={assets.dcaEmblem.alt} width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
           </div>
           <div>
-            <SectionKicker dark>Accreditation</SectionKicker>
+            <SectionKicker dark>Approval</SectionKicker>
             <p className="mt-4 max-w-3xl text-2xl font-semibold leading-snug text-steel-100">
-              Approved by the BPPVE (Bureau for Private Postsecondary and Vocational Education). Approved and Accredited by the California Department of Consumer Affairs.
+              National Truck Driving School is BPPE approved to operate in California. Enrollment advisors can review payment-plan options and agency or voucher paperwork during consultation.
             </p>
           </div>
         </div>
@@ -364,7 +329,7 @@ export function LeadCTA() {
             <SectionKicker dark>Free consultation</SectionKicker>
             <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">Free 15-minute consultation.</h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-steel-200">
-              Find out about courses, financial aid, and job placement. Call {site.phone} or fill in the form.
+              Find out about courses, financial aid, and job placement assistance. Call {site.phone} or fill in the form.
             </p>
           </div>
           <div className="rounded-sm border border-chrome/15 bg-chrome/92 p-5 text-asphalt-900 shadow-hard backdrop-blur lg:p-7">
@@ -516,13 +481,13 @@ export function CurriculumSplit() {
           </div>
           <div className="grid gap-4 sm:grid-cols-2">
             {[
-              ['115', 'Behind-the-wheel training', Truck],
-              ['45', 'Classroom instruction', ClipboardCheck]
-            ].map(([number, label, Icon]) => (
-              <div key={label as string} className="rounded-sm border border-chrome/10 bg-chrome/5 p-7">
+              ['Behind-the-wheel training', 'Yard practice and Bay Area road time on real commercial vehicles.', Truck],
+              ['Classroom instruction', 'Federal Motor Carrier Safety Rules, safety, and pre-trip walk-throughs.', ClipboardCheck]
+            ].map(([title, copy, Icon]) => (
+              <div key={title as string} className="rounded-sm border border-chrome/10 bg-chrome/5 p-7">
                 <Icon className="mb-5 size-9 text-amber-400" />
-                <NumberCounter value={Number(number)} className="font-display text-8xl uppercase leading-none tracking-wide text-amber-400" />
-                <p className="mt-3 font-mono text-xs font-bold uppercase tracking-[0.16em] text-steel-300">{label as string}</p>
+                <h3 className="font-display text-4xl uppercase leading-none tracking-wide text-amber-400">{title as string}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-steel-300">{copy as string}</p>
               </div>
             ))}
           </div>
@@ -566,7 +531,7 @@ export function ScheduleGrid() {
       <Container>
         <div className="grid gap-5 md:grid-cols-3">
           {[
-            ['Full-time', 'Finish in about 4.5 weeks'],
+            ['Full-time', 'Focused, immersive schedule'],
             ['Part-time', 'Fits around work and family'],
             ['Day, Evening & Weekend Classes', 'Pick what works']
           ].map(([title, copy]) => (
@@ -615,7 +580,7 @@ export function PromiseCards() {
         <div className="grid gap-5 lg:grid-cols-2">
           {[
             ['We help you obtain tuition financial aid and financing.', assets.heroRoadSunset],
-            ['We follow through with job placement.', assets.placement]
+            ['We follow through with job placement assistance.', assets.placement]
           ].map(([title, image]) => (
             <article key={title as string} className="relative min-h-[440px] overflow-hidden rounded-sm bg-asphalt-900 shadow-hard">
               <Image
@@ -686,10 +651,10 @@ export function PartnerGrid() {
 
 export function PaymentLadder() {
   const steps = [
-    ['$1,000 down', 'Get started today'],
-    ['No credit check', 'For in-house payment plans'],
-    ['Loans available', 'Independent lender, 24-month installments'],
-    ['Government funding', 'WIA, EDD, DOR, SSA, Workers Comp']
+    ['Installment plans', 'Review payment timing before enrollment'],
+    ['$1,000 starter payment', 'Start with a clear upfront payment'],
+    ['Advisor review', 'Talk through cost, timing, and paperwork'],
+    ['Agency paperwork', 'Bring voucher or agency documents for review']
   ] as const;
   return (
     <section className="bg-chrome py-24">
@@ -698,7 +663,7 @@ export function PaymentLadder() {
           <ImageDepthStack
             id="financial-depth-stack"
             background={assets.heroPov}
-            kicker="Funding / vouchers / payment plans"
+            kicker="Installments / paperwork / advisor review"
             className="aspect-[1858/563] min-h-0"
           />
           <div className="grid gap-5 sm:grid-cols-2">
@@ -824,9 +789,9 @@ export function TipsList() {
               </article>
             ))}
             <blockquote className="rounded-sm bg-asphalt-900 p-7 text-chrome">
-              <p className="font-display text-5xl uppercase leading-none tracking-wide">National Truck Driving School is accredited from a U.S. Department of Education.</p>
-              <a href="https://www.ed.gov/admins/finaid/accred/index.html" className="mt-5 inline-block font-mono text-xs font-bold uppercase tracking-[0.16em] text-amber-400">
-                U.S. Department of Education
+              <p className="font-display text-5xl uppercase leading-none tracking-wide">National Truck Driving School is BPPE approved to operate in California.</p>
+              <a href="https://www.bppe.ca.gov/" className="mt-5 inline-block font-mono text-xs font-bold uppercase tracking-[0.16em] text-amber-400">
+                Bureau for Private Postsecondary Education
               </a>
             </blockquote>
           </div>
@@ -898,7 +863,7 @@ export function SiteMapList() {
     ['Programs', '/programs'],
     ['Class A CDL', '/programs/class-a'],
     ['Class B CDL', '/programs/class-b'],
-    ['Job Placement', '/job-placement'],
+    ['Job Placement Assistance', '/job-placement'],
     ['Financial Aid', '/financial-aid'],
     ['Student Tips', '/student-tips'],
     ['Contact', '/contact'],

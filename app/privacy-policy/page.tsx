@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
   return (
     <SimpleLegalPage title="Privacy Policy">
       <p>
-        This page preserves the existing privacy-policy route for the redesigned site. Lead form data is used to respond to consultation requests about courses, financial aid, and job placement.
+        This page preserves the existing privacy-policy route for the redesigned site. Lead form data is used to respond to consultation requests about courses, financial aid, and job placement assistance.
       </p>
       <p>We use basic website analytics and form-processing tools to operate the site and improve enrollment support.</p>
     </SimpleLegalPage>

@@ -27,7 +27,7 @@ export function LeadForm({ variant = 'compact', className }: LeadFormProps) {
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
       preferredClass: 'Not sure yet',
-      funding: 'Payment plan',
+      funding: 'Installment payment plan',
       bestTime: 'Morning',
       company: ''
     }

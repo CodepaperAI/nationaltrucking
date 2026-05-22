@@ -8,7 +8,7 @@ const footerNav = [
   ['About', '/about'],
   ['Programs', '/programs'],
   ['Student Tips', '/student-tips'],
-  ['Job Placement', '/job-placement'],
+  ['Job Placement Assistance', '/job-placement'],
   ['Financial Aid', '/financial-aid'],
   ['Contact', '/contact']
 ] as const;
@@ -25,7 +25,6 @@ export function Footer() {
             </p>
             <div className="mt-6 flex items-center gap-4">
               <Image src={assets.bppeSeal.src} alt={assets.bppeSeal.alt} width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
-              <Image src={assets.dcaEmblem.src} alt={assets.dcaEmblem.alt} width={76} height={76} className="h-16 w-16 rounded-sm bg-chrome object-contain p-1" />
               <Image src={assets.paymentCards.src} alt={assets.paymentCards.alt} width={120} height={52} className="h-12 w-auto rounded-sm bg-chrome object-contain p-1" />
             </div>
           </div>

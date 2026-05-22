@@ -13,12 +13,12 @@ export default function FinancialAidPage() {
     <>
       <PageHero
         kicker="04 / Financial Aid"
-        title="Funding shouldn't stop a career."
-        sub="We've helped hundreds of students through the funding process. Here's how."
+        title="Plan the payments before you start."
+        sub="Review installment payment options, the starter payment, and any agency or voucher paperwork with an enrollment advisor."
         image={assets.heroRoadSunset}
       />
       <PaymentLadder />
-      <FundingGrid title="Voucher acceptance" />
+      <FundingGrid title="Payment and paperwork options" />
       <FinancialAidInteractive />
       <LeadCTA />
     </>

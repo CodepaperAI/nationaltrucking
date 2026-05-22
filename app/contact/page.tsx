@@ -14,7 +14,7 @@ export default function ContactPage() {
       <PageHero
         kicker="Let's talk"
         title="Free 15-minute consultation."
-        sub="Find out about programs, financial aid, and job placement."
+        sub="Find out about programs, financial aid, and job placement assistance."
         image={assets.sideMirror}
       />
       <ContactRail />

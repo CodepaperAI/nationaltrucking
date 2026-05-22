@@ -12,7 +12,7 @@ export default function JobPlacementPage() {
   return (
     <>
       <PageHero
-        kicker="02 / Job Placement"
+        kicker="02 / Job Placement Assistance"
         title="We don't stop at the license."
         sub="We don't just kick you out the door once you've completed our school. We help you get in the door at some of the top trucking companies in the country."
         image={assets.placement}

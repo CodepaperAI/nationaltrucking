@@ -36,13 +36,6 @@ export const assets = {
     width: 300,
     height: 300
   },
-  dcaEmblem: {
-    id: 'dca-emblem',
-    src: '/img/dca-emblem.png',
-    alt: 'Department of Consumer Affairs accreditation emblem',
-    width: 300,
-    height: 300
-  },
   paymentCards: {
     id: 'payment-cards',
     src: '/img/payment-visa-mastercard.png',
@@ -246,7 +239,7 @@ export const seoPages: Record<string, SeoPage> = {
   home: {
     path: '/',
     title: 'San Francisco Bay Truck Driving School in San Lorenzo - National Truck Driving School',
-    description: 'Truck driving school serving the San Francisco Bay Area. CDL Class A and Class B training with job placement. Call (510) 455-6399.'
+    description: 'Truck driving school serving the San Francisco Bay Area. CDL Class A and Class B training with job placement assistance. Call (510) 455-6399.'
   },
   about: {
     path: '/about',
@@ -256,7 +249,7 @@ export const seoPages: Record<string, SeoPage> = {
   programs: {
     path: '/programs',
     title: 'Training Programs - Bay Area CDL Class A & Class B',
-    description: '115 hours behind-the-wheel, 45 hours classroom. Class A and Class B CDL training in the San Francisco Bay.'
+    description: 'Behind-the-wheel and classroom CDL training. Class A and Class B programs in the San Francisco Bay.'
   },
   classA: {
     path: '/programs/class-a',
@@ -275,8 +268,8 @@ export const seoPages: Record<string, SeoPage> = {
   },
   financialAid: {
     path: '/financial-aid',
-    title: 'Financial Aid & Vouchers - CDL Training Funding',
-    description: '$1,000 down payment plans, WIA, DOR, SSA, Workers Comp vouchers. No credit check options.'
+    title: 'Financial Aid & Installment Payments - CDL Training',
+    description: 'Review installment payment options, the $1,000 starter payment, and any agency or voucher paperwork with an enrollment advisor.'
   },
   tips: {
     path: '/student-tips',
@@ -298,7 +291,7 @@ export const programs: Program[] = [
     href: '/programs/class-a',
     summary: 'Training for tractor-trailers, heavy combinations, and long-haul work.',
     image: assets.heroRoadSunset,
-    facts: ['115 hours behind the wheel', '45 hours classroom instruction', 'Full-time graduates finish in about 4.5 weeks']
+    facts: ['Behind-the-wheel training on real commercial vehicles', 'Classroom instruction on safety and Federal Motor Carrier Safety Rules', 'Full-time and part-time schedules available']
   },
   {
     slug: 'class-b',
@@ -406,25 +399,25 @@ export const partners: PartnerCompany[] = [
 
 export const fundingOptions: FundingOption[] = [
   {
-    title: 'Student Loans',
-    icon: 'loan',
+    title: 'Installment Payment Plans',
+    icon: 'wallet',
     body:
-      'Independent loan source. Zero down with good credit; cosigner or down payment available if not. Payable in 24 monthly installments after training.'
+      'Talk with an enrollment advisor about splitting tuition into payments before you enroll.'
   },
   {
-    title: 'WIA / EDD',
+    title: '$1,000 Starter Payment',
     icon: 'briefcase',
-    body: 'Workforce Investment Act funding for unemployed workers who need a career change.'
+    body: 'Start with a clear upfront payment and review the remaining balance and schedule with the school.'
   },
   {
-    title: 'State Dept. of Rehabilitation',
+    title: 'Advisor-Guided Review',
     icon: 'heart',
-    body: "DOR and Workers' Compensation training vouchers for rehabilitation of injured workers."
+    body: 'Bring questions about cost, timing, and paperwork so the team can help you choose the right payment path.'
   },
   {
-    title: 'Social Service Agency',
+    title: 'Agency/Voucher Paperwork',
     icon: 'file',
-    body: 'Grants for eligible candidates on General Assistance who want to start a career.'
+    body: 'If you already have agency or voucher paperwork, bring it to your consultation so an advisor can review the next steps.'
   }
 ];
 
@@ -454,10 +447,10 @@ export const studentTips: StudentTip[] = [
       "An enrollment agreement should reflect information about the school's total costs for the contracted-for course of instruction, a list of the charges that are non-refundable, the name and description of the program of instruction, the total amount of classes or hours needed to complete the program, payment schedules, cancellation and refund policies, and other mandatory disclosures regarding your rights and responsibilities as a student at the institution. (Education Code section 94810.)"
   },
   {
-    eyebrow: '05 / ACCREDITATION',
-    title: 'Contact the accrediting agency',
+    eyebrow: '05 / APPROVAL',
+    title: 'Verify the school approval status',
     body:
-      'To qualify for some state licensing examinations or for your degree to be recognized by certain employers, some educational programs and training must be obtained from a school that maintains "accreditation" from a U.S. Department of Education recognized accrediting agency. Be sure to check with the licensing agency or employer where you wish your educational experience to be recognized and verify accreditation status with the accrediting agency before enrolling.'
+      'Before enrolling, confirm that the school is approved to operate and ask the enrollment team for any documents you need to review.'
   },
   {
     eyebrow: '06 / ADVERTISING',
@@ -479,9 +472,9 @@ export const studentTips: StudentTip[] = [
   },
   {
     eyebrow: '09 / AID',
-    title: 'Make sure you know the amount and types of financial aid',
+    title: 'Make sure you understand the payment plan',
     body:
-      'There are several options in obtaining financial aid to attend a school. Make sure you know whether you are going to receive or need Federal student loans, Pell grants, private loans or a combination of grants and loans, and understand what the advantages and disadvantages are of obtaining each type of loan or grant. Make sure you know the total amount of loans you are to receive. Match the amount of the loans against the total cost of tuition.'
+      'Ask for the total cost, starter payment, installment schedule, and any paperwork requirements in writing before you enroll.'
   },
   {
     eyebrow: '10 / WRITING',
@@ -498,30 +491,29 @@ export const studentTips: StudentTip[] = [
   {
     eyebrow: '12 / EXPERIENCE',
     title: 'Enjoy your educational experience',
-    body: 'National Truck Driving School is accredited from a U.S. Department of Education!'
+    body: 'National Truck Driving School is BPPE approved to operate in California.'
   }
 ];
 
 export const whyUs = [
   'Class A & Class B Training',
-  'Payment Plans / $1,000 Down',
-  'No Credit Check',
-  'Pass Guarantee',
+  'Installment Payment Options',
+  '$1,000 Starter Payment',
   'Se Habla Espanol',
-  'Rehabilitation Vouchers Accepted',
+  'Agency Paperwork Reviewed',
   'Day / Evening / Weekend Classes',
-  'WIA / EDD / DOR / SSA Funding',
-  'BPPE Approved / DCA Accredited',
+  'Advisor-Guided Payment Review',
+  'BPPE Approved to Operate',
   'Job Placement Assistance'
 ];
 
 export const journeySteps = [
-  ['Free Consultation', 'We talk through goals and funding options.'],
-  ['Enrollment', '$1,000 down. Payment plans available.'],
-  ['Classroom Training', '45 hours. FMCSR, safety, pre-trip.'],
-  ['Behind-the-Wheel', '115 hours in our yard and on Bay Area roads.'],
-  ['DMV Test + License', 'Pass guarantee. We work with you until you pass.'],
-  ['Job Placement', 'Resumes go out to Swift, Gordon, England, Central.']
+  ['Free Consultation', 'We talk through goals and payment options.'],
+  ['Enrollment', '$1,000 starter payment. Installment plans available.'],
+  ['Classroom Training', 'FMCSR, safety, and pre-trip instruction.'],
+  ['Behind-the-Wheel', 'Practice in our yard and on Bay Area roads.'],
+  ['DMV Test + License', 'Instructors prep you for the commercial driver’s license exam.'],
+  ['Job Placement Assistance', 'Resumes go out to Swift, Gordon, England, Central.']
 ] as const;
 
 export const reasons = [

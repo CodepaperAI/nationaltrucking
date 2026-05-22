@@ -1,7 +1,7 @@
 import { z } from 'zod';
 
 export const preferredClassOptions = ['Class A', 'Class B', 'Not sure yet'] as const;
-export const fundingOptions = ['Self-pay', 'Payment plan', 'WIA/EDD', 'DOR', 'SSA', 'Workers Comp', 'Other'] as const;
+export const fundingOptions = ['Self-pay', 'Installment payment plan', 'Agency/voucher paperwork', 'Not sure yet', 'Other'] as const;
 export const bestTimeOptions = ['Morning', 'Afternoon', 'Evening', 'Weekend'] as const;
 
 export const leadFormSchema = z.object({

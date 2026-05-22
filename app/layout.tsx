@@ -69,14 +69,8 @@ const jsonLd = {
     addressCountry: site.address.country
   },
   areaServed: ['Hayward', 'San Lorenzo', 'Oakland', 'Fremont', 'San Jose', 'San Francisco'],
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '5',
-    reviewCount: '1200'
-  },
   hasCredential: [
-    { '@type': 'EducationalOccupationalCredential', name: 'BPPE Approval' },
-    { '@type': 'EducationalOccupationalCredential', name: 'California DCA Accreditation' }
+    { '@type': 'EducationalOccupationalCredential', name: 'BPPE approved to operate' }
   ]
 };
 

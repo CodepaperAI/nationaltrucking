@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Accreditation, LeadCTA, PartnerMarquee, PillarGrid, ProgramPreview, StatRail, TestimonialsSection, WhyUsRibbon } from '@/components/marketing/MarketingSections';
+import { Accreditation, LeadCTA, PartnerMarquee, PillarGrid, ProgramPreview, TestimonialsSection, WhyUsRibbon } from '@/components/marketing/MarketingSections';
 import { HeroHighway } from '@/components/marketing/HeroHighway';
 import { seoPages } from '@/content/site';
 
@@ -14,7 +14,6 @@ export default function SpanishHomePage() {
     <>
       {/* TODO: confirm Spanish translation with client. English fallback content is intentional for v1. */}
       <HeroHighway />
-      <StatRail />
       <PillarGrid />
       <WhyUsRibbon />
       <ProgramPreview />

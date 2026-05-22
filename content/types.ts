@@ -68,7 +68,7 @@ export type PartnerCompany = {
 export type FundingOption = {
   title: string;
   body: string;
-  icon: 'loan' | 'briefcase' | 'heart' | 'file' | 'shield';
+  icon: 'wallet' | 'briefcase' | 'heart' | 'file' | 'shield';
 };
 
 export type StudentTip = {
@@ -88,7 +88,7 @@ export type LeadFormValues = {
   email: string;
   phone: string;
   preferredClass: 'Class A' | 'Class B' | 'Not sure yet';
-  funding: 'Self-pay' | 'Payment plan' | 'WIA/EDD' | 'DOR' | 'SSA' | 'Workers Comp' | 'Other';
+  funding: 'Self-pay' | 'Installment payment plan' | 'Agency/voucher paperwork' | 'Not sure yet' | 'Other';
   bestTime: 'Morning' | 'Afternoon' | 'Evening' | 'Weekend';
   message?: string;
   company?: string;

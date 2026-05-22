@@ -15,7 +15,7 @@ const navItems = [
   ['About', '/about'],
   ['Programs', '/programs'],
   ['Student Tips', '/student-tips'],
-  ['Job Placement', '/job-placement'],
+  ['Job Placement Assistance', '/job-placement'],
   ['Financial Aid', '/financial-aid'],
   ['Contact', '/contact']
 ] as const;
@@ -29,7 +29,7 @@ export function Header() {
       <div className="border-b border-chrome/10 bg-road">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 overflow-hidden px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-steel-300 sm:px-6 lg:px-8">
           <span className="min-w-0 truncate sm:hidden">San Lorenzo · BPPE · Español</span>
-          <span className="hidden min-w-0 truncate sm:inline">San Lorenzo, CA · BPPE Approved · Se Habla Español</span>
+          <span className="hidden min-w-0 truncate sm:inline">San Lorenzo, CA · BPPE approved to operate · Se Habla Español</span>
           <a
             href={site.phoneHref}
             onClick={() => trackEvent('phone_tap', { location: 'top_bar' })}
