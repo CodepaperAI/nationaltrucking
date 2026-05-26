@@ -103,7 +103,7 @@ export function LeadForm({ variant = 'compact', intent = 'default', className }:
           placeholder="Tell us what you want help with."
         />
       </Field>
-      <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-asphalt-500">Protected consultation request.</p>
+      <p className="text-xs font-semibold uppercase tracking-[0.08em] text-asphalt-600">Protected consultation request.</p>
       <Button type="submit" className="w-full" state={buttonState} disabled={isPending} magnetic eventLabel={`lead_form_${variant}`}>
         {isPending ? (
           <>
@@ -138,7 +138,7 @@ type FieldProps = {
 function Field({ label, error, children }: FieldProps) {
   return (
     <label className="grid gap-2">
-      <span className="font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-asphalt-700">{label}</span>
+      <span className="text-xs font-extrabold uppercase tracking-[0.08em] text-asphalt-800">{label}</span>
       {children}
       {error && <span className="text-sm font-semibold text-signal-700">{error}</span>}
     </label>

@@ -402,7 +402,7 @@ export function LeadCTA({ variant = 'default' }: { variant?: LeadCTAVariant } = 
                 : `Find out about courses, financial aid, and job placement assistance. Call ${site.phone} or fill in the form.`}
             </p>
           </div>
-          <div className="rounded-sm border border-chrome/15 bg-chrome/92 p-5 text-asphalt-900 shadow-hard backdrop-blur lg:p-7">
+          <div className="rounded-sm border border-chrome/40 bg-chrome/95 p-5 text-asphalt-900 shadow-hard backdrop-blur lg:p-7">
             <LeadForm intent={variant} />
           </div>
         </div>
