@@ -43,12 +43,12 @@ export function Header() {
 
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-sm" aria-label="National Truck Driving School home">
-          <span className="relative flex h-14 w-40 items-center sm:h-16 sm:w-48 lg:h-14 lg:w-40 xl:h-16 xl:w-52">
+          <span className="relative flex h-16 w-44 items-center sm:h-[76px] sm:w-56 lg:h-16 lg:w-48 xl:h-[82px] xl:w-64">
             <Image
               src={assets.logo.src}
               alt={assets.logo.alt}
               fill
-              sizes="(min-width: 1280px) 208px, (min-width: 640px) 192px, 160px"
+              sizes="(min-width: 1280px) 256px, (min-width: 1024px) 192px, (min-width: 640px) 224px, 176px"
               className="object-contain"
               priority
             />
