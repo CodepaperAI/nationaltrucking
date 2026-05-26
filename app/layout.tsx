@@ -68,10 +68,7 @@ const jsonLd = {
     postalCode: site.address.postalCode,
     addressCountry: site.address.country
   },
-  areaServed: ['Hayward', 'San Lorenzo', 'Oakland', 'Fremont', 'San Jose', 'San Francisco'],
-  hasCredential: [
-    { '@type': 'EducationalOccupationalCredential', name: 'BPPE approved to operate' }
-  ]
+  areaServed: ['Hayward', 'San Lorenzo', 'Oakland', 'Fremont', 'San Jose', 'San Francisco']
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {

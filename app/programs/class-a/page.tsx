@@ -16,6 +16,7 @@ export default function ClassAPage() {
         title="Training for tractor-trailers and heavy combinations."
         sub="Prepare for the Commercial Driver License examination with behind-the-wheel training, classroom instruction, and pass-guarantee support."
         image={assets.heroRoadSunset}
+        variant="programs"
       />
       <ProgramDeepDive kind="class-a" />
       <LeadCTA />

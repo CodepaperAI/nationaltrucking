@@ -16,6 +16,7 @@ export default function ContactPage() {
         title="Free 15-minute consultation."
         sub="Find out about programs, financial aid, and job placement assistance."
         image={assets.sideMirror}
+        variant="contact"
       />
       <ContactRail />
       <FullLeadFormSection />

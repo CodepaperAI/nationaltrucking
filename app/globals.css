@@ -6,26 +6,31 @@
   color-scheme: light;
   --ease-out-expo: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-in-out: cubic-bezier(0.83, 0, 0.17, 1);
+  --color-ink-rgb: 10 14 20;
+  --color-road-rgb: 23 27 34;
+  --color-amber-rgb: 245 165 36;
+  --color-paper: #f8f8f5;
+  --color-paper-soft: #f2f4f7;
 }
 
 html {
   scroll-behavior: smooth;
-  background: #f8f8f5;
+  background: var(--color-paper);
 }
 
 body {
   min-height: 100dvh;
   background:
-    radial-gradient(circle at 12% 0%, rgba(245, 165, 36, 0.08), transparent 24rem),
-    linear-gradient(180deg, #f8f8f5 0%, #f2f4f7 100%);
-  color: #0a0e14;
+    radial-gradient(circle at 12% 0%, rgb(var(--color-amber-rgb) / 0.08), transparent 24rem),
+    linear-gradient(180deg, var(--color-paper) 0%, var(--color-paper-soft) 100%);
+  color: rgb(var(--color-ink-rgb));
   font-family: var(--font-body), sans-serif;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: #f5a524;
-  color: #0a0e14;
+  background: rgb(var(--color-amber-rgb));
+  color: rgb(var(--color-ink-rgb));
 }
 
 a {
@@ -70,6 +75,47 @@ textarea {
   will-change: transform;
 }
 
+.hero-side-overlay {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--color-ink-rgb) / 0.94) 0%,
+    rgb(var(--color-ink-rgb) / 0.78) 38%,
+    rgb(var(--color-ink-rgb) / 0.38) 72%,
+    rgb(var(--color-ink-rgb) / 0.16) 100%
+  );
+}
+
+.hero-warm-spot {
+  background: radial-gradient(circle at 72% 52%, rgb(var(--color-amber-rgb) / 0.18), transparent 26rem);
+}
+
+.hero-floor-overlay {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--color-ink-rgb) / 0.08) 0%,
+    rgb(var(--color-ink-rgb) / 0) 38%,
+    rgb(var(--color-ink-rgb) / 0.8) 100%
+  );
+}
+
+.hero-road-surface {
+  background: linear-gradient(
+    180deg,
+    rgb(var(--color-ink-rgb) / 0) 0%,
+    rgb(var(--color-ink-rgb) / 0.2) 34%,
+    rgb(var(--color-road-rgb) / 0.68) 100%
+  );
+}
+
+.hero-lane-stripe {
+  background-image: linear-gradient(
+    90deg,
+    transparent 0 8%,
+    rgb(var(--color-amber-rgb) / 0.88) 8% 15%,
+    transparent 15% 29%
+  );
+}
+
 .route-draw {
   stroke-dasharray: 24 24;
   animation: route-draw 2.4s var(--ease-out-expo) both;
@@ -94,6 +140,10 @@ textarea {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none !important;
+  }
+
   *,
   *::before,
   *::after {

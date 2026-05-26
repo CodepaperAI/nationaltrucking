@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { FundingGrid, LeadCTA, PageHero, PartnerGrid, PromiseCards } from '@/components/marketing/MarketingSections';
+import { LeadCTA, PageHero, PartnerGrid, PromiseCards } from '@/components/marketing/MarketingSections';
 import { assets, seoPages } from '@/content/site';
 
 export const metadata: Metadata = {
@@ -12,15 +12,15 @@ export default function JobPlacementPage() {
   return (
     <>
       <PageHero
-        kicker="02 / Job Placement Assistance"
+        kicker="Job placement assistance"
         title="We don't stop at the license."
-        sub="We don't just kick you out the door once you've completed our school. We help you get in the door at some of the top trucking companies in the country."
+        sub="After training, our team helps graduates prepare for applications, understand hiring expectations, and connect with companies looking for new CDL drivers."
         image={assets.placement}
+        variant="placement"
       />
       <PromiseCards />
-      <FundingGrid title="Funding support, then job placement." />
       <PartnerGrid />
-      <LeadCTA />
+      <LeadCTA variant="placement" />
     </>
   );
 }

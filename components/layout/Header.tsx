@@ -28,8 +28,8 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-asphalt-900/10 bg-chrome text-asphalt-900 backdrop-blur-xl">
       <div className="border-b border-chrome/10 bg-road">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 overflow-hidden px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-steel-300 sm:px-6 lg:px-8">
-          <span className="min-w-0 truncate sm:hidden">San Lorenzo · BPPE · Español</span>
-          <span className="hidden min-w-0 truncate sm:inline">San Lorenzo, CA · BPPE approved to operate · Se Habla Español</span>
+          <span className="min-w-0 truncate sm:hidden">San Lorenzo · CDL Training · Español</span>
+          <span className="hidden min-w-0 truncate sm:inline">San Lorenzo, CA · CDL Class A & B training · Se Habla Español</span>
           <a
             href={site.phoneHref}
             onClick={() => trackEvent('phone_tap', { location: 'top_bar' })}
@@ -43,8 +43,15 @@ export function Header() {
 
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
         <Link href="/" className="focus-ring flex items-center gap-3 rounded-sm" aria-label="National Truck Driving School home">
-          <span className="relative flex h-12 w-32 items-center">
-            <Image src={assets.logo.src} alt={assets.logo.alt} fill sizes="128px" className="object-contain" priority />
+          <span className="relative flex h-14 w-40 items-center sm:h-16 sm:w-48 lg:h-14 lg:w-40 xl:h-16 xl:w-52">
+            <Image
+              src={assets.logo.src}
+              alt={assets.logo.alt}
+              fill
+              sizes="(min-width: 1280px) 208px, (min-width: 640px) 192px, 160px"
+              className="object-contain"
+              priority
+            />
           </span>
         </Link>
 

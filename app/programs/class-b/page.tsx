@@ -16,6 +16,7 @@ export default function ClassBPage() {
         title="Training for buses, delivery trucks, and local jobs."
         sub="Build the skills required for Class B commercial driving and Passenger endorsement work."
         image={assets.students}
+        variant="programs"
       />
       <ProgramDeepDive kind="class-b" />
       <LeadCTA />

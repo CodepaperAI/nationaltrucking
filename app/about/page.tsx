@@ -16,6 +16,7 @@ export default function AboutPage() {
         title="Straight-forward. Honest. Uncompromised."
         sub="The objective is to prepare students with knowledge and skills for the abundance of entry-level jobs in the trucking industry."
         image={assets.mirrorInstructor}
+        variant="about"
       />
       <AboutPromise />
       <InstructorGrid />

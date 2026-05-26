@@ -10,6 +10,7 @@ import { cn } from '@/lib/utils';
 type ButtonBase = {
   children: ReactNode;
   variant?: 'primary' | 'secondary' | 'ghost' | 'dark';
+  state?: 'idle' | 'loading' | 'success' | 'error';
   magnetic?: boolean;
   className?: string;
   eventLabel?: string;
@@ -26,14 +27,21 @@ type ButtonNativeProps = ButtonBase &
   };
 
 const variants = {
-  primary: 'bg-amber-500 text-asphalt-900 hover:bg-amber-400 border-amber-500',
-  secondary: 'bg-transparent text-asphalt-900 hover:bg-asphalt-900 hover:text-chrome border-asphalt-900/30',
-  ghost: 'bg-transparent text-current hover:bg-current/10 border-transparent',
-  dark: 'bg-chrome text-asphalt-900 hover:bg-steel-200 border-chrome'
+  primary: 'border-amber-500 bg-amber-500 text-asphalt-900 hover:bg-amber-400',
+  secondary: 'border-asphalt-900/30 bg-transparent text-asphalt-900 hover:bg-asphalt-900 hover:text-chrome',
+  ghost: 'border-transparent bg-transparent text-current hover:bg-current/10',
+  dark: 'border-chrome bg-chrome text-asphalt-900 hover:bg-steel-200'
+};
+
+const states = {
+  idle: '',
+  loading: 'cursor-wait opacity-85',
+  success: 'border-amber-500 bg-amber-400 text-asphalt-900',
+  error: 'border-signal-500 bg-signal-500 text-chrome'
 };
 
 export function Button(props: ButtonLinkProps | ButtonNativeProps) {
-  const { children, variant = 'primary', magnetic = false, className, eventLabel } = props;
+  const { children, variant = 'primary', state = 'idle', magnetic = false, className, eventLabel } = props;
   const ref = useRef<HTMLSpanElement>(null);
   const mx = useMotionValue(0);
   const my = useMotionValue(0);
@@ -43,8 +51,9 @@ export function Button(props: ButtonLinkProps | ButtonNativeProps) {
   const y = useTransform(sy, (value) => value * 0.28);
 
   const classes = cn(
-    'focus-ring group inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] transition duration-300 ease-out active:translate-y-px',
+    'focus-ring group inline-flex min-h-11 items-center justify-center gap-2 rounded-sm border px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.18em] transition duration-300 ease-out active:translate-y-px disabled:pointer-events-none disabled:cursor-not-allowed disabled:border-asphalt-900/10 disabled:bg-steel-200 disabled:text-asphalt-500 disabled:opacity-70',
     variants[variant],
+    states[state],
     className
   );
 
@@ -65,7 +74,7 @@ export function Button(props: ButtonLinkProps | ButtonNativeProps) {
   };
 
   if ('href' in props && props.href) {
-    const { href, children: _children, variant: _variant, magnetic: _magnetic, className: _className, eventLabel: _eventLabel, ...linkRest } = props;
+    const { href, children: _children, variant: _variant, state: _state, magnetic: _magnetic, className: _className, eventLabel: _eventLabel, ...linkRest } = props;
 
     return (
       <motion.span ref={ref} style={magnetic ? { x, y } : undefined} onPointerMove={handlePointerMove} onPointerLeave={handlePointerLeave}>
@@ -77,7 +86,7 @@ export function Button(props: ButtonLinkProps | ButtonNativeProps) {
     );
   }
 
-  const { children: _children, variant: _variant, magnetic: _magnetic, className: _className, eventLabel: _eventLabel, ...buttonRest } = props;
+  const { children: _children, variant: _variant, state: _state, magnetic: _magnetic, className: _className, eventLabel: _eventLabel, ...buttonRest } = props;
 
   return (
     <motion.span ref={ref} style={magnetic ? { x, y } : undefined} onPointerMove={handlePointerMove} onPointerLeave={handlePointerLeave}>

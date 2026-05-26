@@ -29,13 +29,6 @@ export const assets = {
     width: 512,
     height: 228
   },
-  bppeSeal: {
-    id: 'bppe-seal',
-    src: '/img/bppe.jpg',
-    alt: 'BPPE approval seal',
-    width: 300,
-    height: 300
-  },
   paymentCards: {
     id: 'payment-cards',
     src: '/img/payment-visa-mastercard.png',
@@ -90,18 +83,16 @@ export const assets = {
   heroTruckCutout: {
     id: 'hero-truck-cutout',
     src: '/img/hero-truck-cutout.webp',
-    alt: 'Temporary realistic truck cutout for hero scroll animation',
+    alt: 'Semi truck cutout for hero scroll animation',
     width: 1500,
-    height: 420,
-    todo: 'TODO replace with client original'
+    height: 420
   },
   roadForeground: {
     id: 'road-foreground',
     src: '/img/road-foreground.webp',
-    alt: 'Temporary road foreground layer for scroll depth animation',
+    alt: 'Road foreground layer for scroll depth animation',
     width: 1400,
-    height: 360,
-    todo: 'TODO replace with client original'
+    height: 360
   },
   yardConesCutout: {
     id: 'yard-cones-cutout',
@@ -244,7 +235,7 @@ export const seoPages: Record<string, SeoPage> = {
   about: {
     path: '/about',
     title: 'About Us - National Truck Driving School',
-    description: 'Bay Area CDL training school preparing students for entry-level trucking and busing jobs. BPPE approved.'
+    description: 'Bay Area CDL training school preparing students for entry-level trucking and busing jobs.'
   },
   programs: {
     path: '/programs',
@@ -307,21 +298,21 @@ export const programs: Program[] = [
 export const homepageReels: VideoReel[] = [
   {
     id: 'training-reel-1',
-    eyebrow: 'Reel 01 / yard practice',
-    title: 'Watch the training before you step into the yard.',
-    body: 'A quick look at the real practice rhythm: instruction, repetition, and confidence building around commercial vehicles.',
+    eyebrow: 'Reel 01 / your next move',
+    title: 'Start with a school that moves you forward.',
+    body: 'Your next career move starts behind the wheel.',
     src: '/video/training-reel-1.mp4',
     poster: assets.yard,
-    durationLabel: 'Student training preview'
+    durationLabel: 'Career overview'
   },
   {
     id: 'training-reel-2',
-    eyebrow: 'Reel 02 / road ready',
-    title: 'See what progress looks like from the driver seat.',
-    body: 'Use this space for the most inspiring clip: road time, instructor guidance, or a student celebrating a passed test.',
+    eyebrow: 'Reel 02 / road ahead',
+    title: 'Turn CDL training into a real career path.',
+    body: 'Build momentum for real driving work.',
     src: '/video/training-reel-2.mp4',
     poster: assets.heroRoadSunset,
-    durationLabel: 'Road training preview'
+    durationLabel: 'Career path'
   }
 ];
 
@@ -429,10 +420,10 @@ export const studentTips: StudentTip[] = [
       'Prior to enrolling, interview students in the program, or take a tour of the school. Ask if the school will let you sit in or observe the class or course that you are interested in before enrolling.'
   },
   {
-    eyebrow: '02 / VERIFY APPROVAL',
-    title: 'Contact the bureau or check the website to see if the school is approved',
+    eyebrow: '02 / VERIFY STATUS',
+    title: "Check the school's current training status",
     body:
-      'Watch out for schools that are not approved by the Bureau, schools that have had an extreme number of complaints in a short amount of time, or have a record of discipline (e.g., probation, suspension). If the school is not approved, you could end up with a diploma or degree that is not recognized and a lot of debt and little, or no education. A school with a high number of complaints or a record of discipline may indicate that the school is not meeting minimum standards for instructional quality or institutional stability.'
+      'Before enrolling, confirm what license, certificate, or DMV preparation the program supports. Ask how the training hours, equipment, testing preparation, and refund policies are documented.'
   },
   {
     eyebrow: '03 / CATALOG',
@@ -447,10 +438,10 @@ export const studentTips: StudentTip[] = [
       "An enrollment agreement should reflect information about the school's total costs for the contracted-for course of instruction, a list of the charges that are non-refundable, the name and description of the program of instruction, the total amount of classes or hours needed to complete the program, payment schedules, cancellation and refund policies, and other mandatory disclosures regarding your rights and responsibilities as a student at the institution. (Education Code section 94810.)"
   },
   {
-    eyebrow: '05 / APPROVAL',
-    title: 'Verify the school approval status',
+    eyebrow: '05 / READINESS',
+    title: 'Verify the school and program details',
     body:
-      'Before enrolling, confirm that the school is approved to operate and ask the enrollment team for any documents you need to review.'
+      'Before enrolling, confirm the exact program, schedule, total cost, included training hours, and any documents you need to review.'
   },
   {
     eyebrow: '06 / ADVERTISING',
@@ -491,7 +482,7 @@ export const studentTips: StudentTip[] = [
   {
     eyebrow: '12 / EXPERIENCE',
     title: 'Enjoy your educational experience',
-    body: 'National Truck Driving School is BPPE approved to operate in California.'
+    body: 'Choose a school that keeps expectations clear, answers your questions directly, and supports you through training and DMV test preparation.'
   }
 ];
 
@@ -503,7 +494,7 @@ export const whyUs = [
   'Agency Paperwork Reviewed',
   'Day / Evening / Weekend Classes',
   'Advisor-Guided Payment Review',
-  'BPPE Approved to Operate',
+  'DMV Test Preparation',
   'Job Placement Assistance'
 ];
 
@@ -517,14 +508,14 @@ export const journeySteps = [
 ] as const;
 
 export const reasons = [
-  'Ever shook your fist out the window as a kid to get truckers to honk their air horns?',
-  'Want a Harley Davidson with 18 wheels?',
-  'Ever wanted to tell your boss to stick it - "I\'m hitting the road"?',
-  'Romantic to see North America from the seat of a big rig?',
-  'Looking for a high-paying, respected, professional job?',
-  'Find yourself stopping at truck stops for the food?',
-  "Can't stand staying in one place too long?",
-  'Want to be your own boss?',
-  "Want to be a critical part of the nation's transportation industry?",
-  'Want to join a fraternity of respected professionals everyone wishes they could join?'
+  'You want a practical career path with hands-on training.',
+  'You are comfortable learning safety rules and following procedure.',
+  'You like work that combines focus, responsibility, and movement.',
+  'You want skills that can transfer across local, regional, and fleet jobs.',
+  'You are ready to practice until the pre-trip and road skills feel natural.',
+  'You want instructors who can explain the DMV test step by step.',
+  'You need training that can fit around work and family schedules.',
+  'You want a license that opens more than one kind of driving opportunity.',
+  "You understand that safe drivers are essential to the country's supply chain.",
+  'You want a school that keeps helping after the license conversation starts.'
 ];

@@ -12,10 +12,11 @@ export default function FinancialAidPage() {
   return (
     <>
       <PageHero
-        kicker="04 / Financial Aid"
+        kicker="Financial aid"
         title="Plan the payments before you start."
         sub="Review installment payment options, the starter payment, and any agency or voucher paperwork with an enrollment advisor."
         image={assets.heroRoadSunset}
+        variant="finance"
       />
       <PaymentLadder />
       <FundingGrid title="Payment and paperwork options" />

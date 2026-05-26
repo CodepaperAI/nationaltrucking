@@ -77,7 +77,7 @@ export function CutoutMotionLayer({
 
   return (
     <div ref={layerRef} className={cn('absolute will-change-transform', className)} aria-hidden="true">
-      <Image src={asset.src} alt="" fill sizes={sizes} className={cn('object-contain drop-shadow-[0_28px_48px_rgba(10,14,20,0.38)]', imageClassName)} />
+      <Image src={asset.src} alt="" fill sizes={sizes} className={cn('object-contain drop-shadow-2xl', imageClassName)} />
     </div>
   );
 }

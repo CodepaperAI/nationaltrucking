@@ -12,12 +12,15 @@ import { cn } from '@/lib/utils';
 
 type LeadFormProps = {
   variant?: 'compact' | 'expanded';
+  intent?: 'default' | 'placement';
   className?: string;
 };
 
-export function LeadForm({ variant = 'compact', className }: LeadFormProps) {
+export function LeadForm({ variant = 'compact', intent = 'default', className }: LeadFormProps) {
   const [isPending, startTransition] = useTransition();
   const [status, setStatus] = useState<{ ok: boolean; message: string } | null>(null);
+  const buttonState = isPending ? 'loading' : status?.ok ? 'success' : status ? 'error' : 'idle';
+  const hideFunding = intent === 'placement';
   const {
     register,
     handleSubmit,
@@ -27,7 +30,7 @@ export function LeadForm({ variant = 'compact', className }: LeadFormProps) {
     resolver: zodResolver(leadFormSchema),
     defaultValues: {
       preferredClass: 'Not sure yet',
-      funding: 'Installment payment plan',
+      funding: hideFunding ? 'Not sure yet' : 'Installment payment plan',
       bestTime: 'Morning',
       company: ''
     }
@@ -81,13 +84,17 @@ export function LeadForm({ variant = 'compact', className }: LeadFormProps) {
           ))}
         </div>
       </Field>
-      <Field label="Funding" error={errors.funding?.message}>
-        <select {...register('funding')} className="input-control">
-          {fundingOptions.map((option) => (
-            <option key={option}>{option}</option>
-          ))}
-        </select>
-      </Field>
+      {hideFunding ? (
+        <input type="hidden" value="Not sure yet" {...register('funding')} />
+      ) : (
+        <Field label="Funding" error={errors.funding?.message}>
+          <select {...register('funding')} className="input-control">
+            {fundingOptions.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </Field>
+      )}
       <Field label="Message" error={errors.message?.message}>
         <textarea
           {...register('message')}
@@ -97,7 +104,7 @@ export function LeadForm({ variant = 'compact', className }: LeadFormProps) {
         />
       </Field>
       <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-asphalt-500">Protected consultation request.</p>
-      <Button type="submit" className="w-full" magnetic eventLabel={`lead_form_${variant}`}>
+      <Button type="submit" className="w-full" state={buttonState} disabled={isPending} magnetic eventLabel={`lead_form_${variant}`}>
         {isPending ? (
           <>
             <Loader2 className="size-4 animate-spin" />

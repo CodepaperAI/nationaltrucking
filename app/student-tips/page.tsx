@@ -26,10 +26,11 @@ export default function StudentTipsPage() {
   return (
     <>
       <PageHero
-        kicker="03 / Student Guide"
+        kicker="Student guide"
         title="How to pick a truck driving school without getting burned."
         sub="12 things to check before you sign an enrollment agreement."
         image={assets.classroom}
+        variant="guide"
       />
       <TipsList />
       <LeadCTA />

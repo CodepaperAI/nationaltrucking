@@ -13,8 +13,8 @@ export function HeroHighway() {
       <div className="relative z-20 mx-auto flex min-h-[calc(100dvh-104px)] max-w-7xl items-center px-4 pb-32 pt-20 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="mb-5 font-mono text-xs font-bold uppercase tracking-[0.22em] text-amber-400">
-            <span className="sm:hidden">San Lorenzo · BPPE · Espanol</span>
-            <span className="hidden sm:inline">San Lorenzo, CA · BPPE approved to operate · Se Habla Espanol</span>
+            <span className="sm:hidden">San Lorenzo · CDL Training · Espanol</span>
+            <span className="hidden sm:inline">San Lorenzo, CA · CDL Class A & B training · Se Habla Espanol</span>
           </p>
           <h1 className="mt-5 max-w-3xl font-display text-[clamp(3rem,13.5vw,5.25rem)] uppercase leading-[0.88] tracking-wide text-chrome sm:text-[5.65rem] lg:text-[6.8rem] xl:text-[7.25rem]">
             <span className="block">Start your</span>
@@ -42,7 +42,7 @@ export function HeroHighway() {
 
       <div className="absolute inset-x-0 bottom-0 z-30 border-y border-chrome/10 bg-asphalt-900/80 py-4 backdrop-blur-md">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-steel-200 sm:px-6 lg:px-8">
-          <span>BPPE approved to operate</span>
+          <span>Class A & Class B training</span>
           <span>Installment payment options</span>
           <span>Se habla Espanol</span>
           <span>Job placement assistance</span>

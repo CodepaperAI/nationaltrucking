@@ -27,6 +27,7 @@ import { ScrollReveal } from '@/components/ui/ScrollReveal';
 import { SectionKicker } from '@/components/ui/SectionKicker';
 import { assets, fundingOptions, homepageReels, journeySteps, partners, programs, reasons, site, studentTips, testimonials, whyUs } from '@/content/site';
 import type { AssetSlot, FundingOption } from '@/content/types';
+import { cn } from '@/lib/utils';
 import { LeadForm } from './LeadForm';
 import { TestimonialCarousel } from './TestimonialCarousel';
 import { EligibilityCheck } from './EligibilityCheck';
@@ -44,6 +45,67 @@ const imageStyle = (asset: AssetSlot): CSSProperties | undefined => (asset.posit
 const isPanorama = (asset: AssetSlot) => asset.width / asset.height >= 2.4;
 const photoAspectClass = (asset: AssetSlot, fallback = 'aspect-[16/10]') => (isPanorama(asset) ? 'aspect-[1858/563]' : fallback);
 
+type PageHeroVariant = 'standard' | 'programs' | 'finance' | 'about' | 'placement' | 'contact' | 'guide';
+
+const pageHeroStyles = {
+  standard: {
+    section: 'min-h-[70dvh]',
+    container: 'min-h-[70dvh]',
+    image: 'opacity-50',
+    overlay: 'bg-gradient-to-r from-asphalt-900 via-asphalt-900/75 to-asphalt-900/20',
+    title: 'max-w-4xl',
+    copy: 'max-w-2xl'
+  },
+  programs: {
+    section: 'min-h-[72dvh]',
+    container: 'min-h-[72dvh] justify-end pb-24',
+    image: 'opacity-60 saturate-125',
+    overlay: 'bg-gradient-to-tr from-asphalt-900 via-asphalt-900/78 to-asphalt-900/12',
+    title: 'max-w-5xl',
+    copy: 'max-w-xl'
+  },
+  finance: {
+    section: 'min-h-[68dvh]',
+    container: 'min-h-[68dvh]',
+    image: 'opacity-50',
+    overlay: 'bg-gradient-to-br from-asphalt-900 via-asphalt-900/82 to-amber-500/20',
+    title: 'max-w-4xl',
+    copy: 'max-w-2xl'
+  },
+  about: {
+    section: 'min-h-[64dvh]',
+    container: 'min-h-[64dvh] items-center text-center',
+    image: 'opacity-40 grayscale',
+    overlay: 'bg-gradient-to-b from-asphalt-900/92 via-asphalt-900/76 to-asphalt-900/40',
+    title: 'max-w-5xl',
+    copy: 'mx-auto max-w-3xl'
+  },
+  placement: {
+    section: 'min-h-[66dvh]',
+    container: 'min-h-[66dvh] justify-end pb-20',
+    image: 'opacity-60',
+    overlay: 'bg-gradient-to-r from-asphalt-900 via-asphalt-900/86 to-asphalt-900/34',
+    title: 'max-w-4xl',
+    copy: 'max-w-3xl'
+  },
+  contact: {
+    section: 'min-h-[58dvh]',
+    container: 'min-h-[58dvh]',
+    image: 'opacity-40',
+    overlay: 'bg-gradient-to-r from-asphalt-900 via-asphalt-900/72 to-asphalt-900/10',
+    title: 'max-w-3xl',
+    copy: 'max-w-xl'
+  },
+  guide: {
+    section: 'min-h-[62dvh]',
+    container: 'min-h-[62dvh]',
+    image: 'opacity-50',
+    overlay: 'bg-gradient-to-l from-asphalt-900/52 via-asphalt-900/82 to-asphalt-900',
+    title: 'max-w-5xl',
+    copy: 'max-w-2xl'
+  }
+} satisfies Record<PageHeroVariant, Record<'section' | 'container' | 'image' | 'overlay' | 'title' | 'copy', string>>;
+
 export function TrainingPathRail() {
   const paths = [
     [Truck, 'Class A CDL', 'Tractor-trailer training with hands-on behind-the-wheel practice.', '/programs/class-a'],
@@ -54,32 +116,31 @@ export function TrainingPathRail() {
 
   return (
     <section className="relative overflow-hidden bg-road text-chrome">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(245,165,36,0.14),transparent_28rem)]" aria-hidden="true" />
+      <div className="hero-warm-spot absolute inset-0 opacity-80" aria-hidden="true" />
       <Container className="relative">
         <div className="grid overflow-hidden border-x border-chrome/10 bg-chrome/10 lg:grid-cols-4">
           {paths.map(([Icon, title, body, href], index) => (
-            <ScrollReveal key={title} delay={index * 0.08} y={34} className="min-h-full">
-              <Link
-                href={href}
-                className="group focus-ring relative isolate flex min-h-[260px] flex-col overflow-hidden bg-road p-6 transition duration-300 ease-out hover:-translate-y-1 hover:bg-[#111923]"
+            <Link
+              href={href}
+              key={title}
+              className="group focus-ring relative isolate flex min-h-[260px] flex-col overflow-hidden bg-road p-6 transition duration-300 ease-out hover:-translate-y-1 hover:bg-asphalt-800"
+            >
+              <span
+                className="pointer-events-none absolute -bottom-8 -right-2 z-[-1] font-display text-[9rem] leading-none text-chrome/[0.045] transition duration-500 group-hover:translate-x-2 group-hover:text-amber-400/[0.08]"
+                aria-hidden="true"
               >
-                <span
-                  className="pointer-events-none absolute -bottom-8 -right-2 z-[-1] font-display text-[9rem] leading-none text-chrome/[0.045] transition duration-500 group-hover:translate-x-2 group-hover:text-amber-400/[0.08]"
-                  aria-hidden="true"
-                >
-                  {String(index + 1).padStart(2, '0')}
-                </span>
-                <span className="mb-10 inline-flex size-14 items-center justify-center rounded-sm border border-chrome/10 bg-chrome/5 text-amber-400 transition duration-300 group-hover:-translate-y-1 group-hover:bg-amber-400 group-hover:text-asphalt-900">
-                  <Icon className="size-7" />
-                </span>
-                <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">0{index + 1} / training path</p>
-                <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide">{title}</h2>
-                <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-steel-300">{body}</p>
-                <span className="mt-auto pt-8 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-chrome transition group-hover:text-amber-400">
-                  Open path
-                </span>
-              </Link>
-            </ScrollReveal>
+                {String(index + 1).padStart(2, '0')}
+              </span>
+              <span className="mb-10 inline-flex size-14 items-center justify-center rounded-sm border border-chrome/10 bg-chrome/5 text-amber-400 transition duration-300 group-hover:-translate-y-1 group-hover:bg-amber-400 group-hover:text-asphalt-900">
+                <Icon className="size-7" />
+              </span>
+              <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">Training path</p>
+              <h2 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide">{title}</h2>
+              <p className="mt-3 max-w-[16rem] text-sm leading-relaxed text-steel-300">{body}</p>
+              <span className="mt-auto pt-8 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-chrome transition group-hover:text-amber-400">
+                Open path
+              </span>
+            </Link>
           ))}
         </div>
       </Container>
@@ -93,15 +154,15 @@ export function TrainingReelsSection() {
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.82fr_1.18fr] lg:items-center">
           <ScrollReveal className="max-w-xl">
-            <SectionKicker dark>01 / training in action</SectionKicker>
+            <SectionKicker dark>Career overview</SectionKicker>
             <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">
-              See the yard before you arrive.
+              Picture the road ahead.
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-steel-200">
-              Short reel previews help future students picture the first day: the trucks, the instruction, and the confidence that builds with each practice run.
+              Quick video previews for future drivers who want a practical path into trucking, bus, and local driving work.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-steel-300">
-              <span className="rounded-sm border border-chrome/15 px-3 py-2">Real training clips</span>
+              <span className="rounded-sm border border-chrome/15 px-3 py-2">Career snapshot</span>
               <span className="rounded-sm border border-chrome/15 px-3 py-2">Muted preview</span>
               <span className="rounded-sm border border-chrome/15 px-3 py-2">Tap to watch</span>
             </div>
@@ -109,32 +170,30 @@ export function TrainingReelsSection() {
 
           <div className="grid gap-5 sm:grid-cols-2">
             {homepageReels.map((reel, index) => (
-              <ScrollReveal key={reel.id} delay={0.12 + index * 0.12} y={44} className={index === 1 ? 'lg:mt-12' : undefined}>
-                <article className="group rounded-sm border border-chrome/12 bg-chrome/5 p-3 shadow-hard backdrop-blur transition duration-300 ease-out hover:-translate-y-1 hover:border-amber-400/45 hover:bg-chrome/[0.075]">
-                  <div className="relative aspect-[9/16] overflow-hidden rounded-sm bg-asphalt-900">
-                    <video
-                      className="size-full object-cover transition duration-700 group-hover:scale-[1.025]"
-                      controls
-                      muted
-                      playsInline
-                      preload="metadata"
-                      poster={reel.poster.src}
-                      aria-label={reel.title}
-                    >
-                      <source src={reel.src} type="video/mp4" />
-                    </video>
-                    <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-asphalt-900/82 to-transparent p-4">
-                      <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300">{reel.durationLabel}</span>
-                      <PlayCircle className="size-7 text-chrome drop-shadow transition duration-300 group-hover:scale-110 group-hover:text-amber-300" />
-                    </div>
+              <article key={reel.id} className={cn(index === 1 ? 'lg:mt-12' : undefined, 'group rounded-sm border border-chrome/12 bg-chrome/5 p-3 shadow-hard backdrop-blur transition duration-300 ease-out hover:-translate-y-1 hover:border-amber-400/45 hover:bg-chrome/[0.075]')}>
+                <div className="relative aspect-[9/16] overflow-hidden rounded-sm bg-asphalt-900">
+                  <video
+                    className="size-full object-cover transition duration-700 group-hover:scale-[1.025]"
+                    controls
+                    muted
+                    playsInline
+                    preload="metadata"
+                    poster={reel.poster.src}
+                    aria-label={reel.title}
+                  >
+                    <source src={reel.src} type="video/mp4" />
+                  </video>
+                  <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center justify-between bg-gradient-to-b from-asphalt-900/82 to-transparent p-4">
+                    <span className="font-mono text-[10px] font-bold uppercase tracking-[0.16em] text-amber-300">{reel.durationLabel}</span>
+                    <PlayCircle className="size-7 text-chrome drop-shadow transition duration-300 group-hover:scale-110 group-hover:text-amber-300" />
                   </div>
-                  <div className="px-2 pb-2 pt-5">
-                    <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">{reel.eyebrow}</p>
-                    <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-chrome">{reel.title}</h3>
-                    <p className="mt-3 text-sm leading-relaxed text-steel-300">{reel.body}</p>
-                  </div>
-                </article>
-              </ScrollReveal>
+                </div>
+                <div className="px-2 pb-2 pt-5">
+                  <p className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-amber-400">{reel.eyebrow}</p>
+                  <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-chrome">{reel.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-steel-300">{reel.body}</p>
+                </div>
+              </article>
             ))}
           </div>
         </div>
@@ -154,7 +213,7 @@ export function PillarGrid() {
     <section className="bg-chrome py-20">
       <Container>
         <div className="mb-10 max-w-2xl">
-          <SectionKicker>00 / fast path</SectionKicker>
+          <SectionKicker>Fast path</SectionKicker>
           <h2 className="mt-3 font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">Choose the lane.</h2>
         </div>
         <div className="grid gap-5 lg:grid-cols-[1.15fr_0.925fr_0.925fr]">
@@ -229,14 +288,14 @@ export function ProgramPreview() {
             />
           </div>
           <div className="flex flex-col justify-center">
-            <SectionKicker>01 / our training</SectionKicker>
+            <SectionKicker>Our training</SectionKicker>
             <h2 className="mt-4 max-w-2xl font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">
               From your first cone to your CDL license.
             </h2>
             <div className="mt-10 grid gap-4">
               {beats.map(([, title, copy], index) => (
                 <article key={title} className="rounded-sm border border-asphalt-900/10 bg-steel-100 p-6">
-                  <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-600">0{index + 1}</p>
+                  <p className="font-mono text-xs font-bold uppercase tracking-[0.18em] text-amber-600">Training beat</p>
                   <h3 className="mt-3 font-display text-4xl uppercase leading-none tracking-wide text-asphalt-900">{title}</h3>
                   <p className="mt-3 text-asphalt-700">{copy}</p>
                 </article>
@@ -258,7 +317,7 @@ export function TestimonialsSection() {
       <Container>
         <div className="mb-10 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <SectionKicker>02 / what grads say</SectionKicker>
+            <SectionKicker>Graduate stories</SectionKicker>
             <h2 className="mt-4 max-w-3xl font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">
               Words from graduates who passed.
             </h2>
@@ -277,7 +336,7 @@ export function PartnerMarquee() {
       <Container>
         <div className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <SectionKicker dark>03 / where grads work</SectionKicker>
+            <SectionKicker dark>Where grads work</SectionKicker>
             <h2 className="mt-3 font-display text-5xl uppercase leading-none tracking-wide md:text-7xl">Top fleets recruit straight out of our yard.</h2>
           </div>
         </div>
@@ -303,13 +362,16 @@ export function Accreditation() {
     <section className="bg-road py-16 text-chrome">
       <Container>
         <div className="grid items-center gap-8 lg:grid-cols-[0.7fr_1.3fr]">
-          <div className="flex gap-4">
-            <Image src={assets.bppeSeal.src} alt={assets.bppeSeal.alt} width={150} height={150} className="h-28 w-28 rounded-sm bg-chrome object-contain p-2 sm:h-36 sm:w-36" />
+          <div className="grid gap-3 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-steel-200 sm:grid-cols-2">
+            <span className="rounded-sm border border-chrome/10 bg-chrome/5 p-4">Class A & Class B</span>
+            <span className="rounded-sm border border-chrome/10 bg-chrome/5 p-4">Payment Review</span>
+            <span className="rounded-sm border border-chrome/10 bg-chrome/5 p-4">DMV Test Prep</span>
+            <span className="rounded-sm border border-chrome/10 bg-chrome/5 p-4">Placement Support</span>
           </div>
           <div>
-            <SectionKicker dark>Approval</SectionKicker>
+            <SectionKicker dark>Enrollment support</SectionKicker>
             <p className="mt-4 max-w-3xl text-2xl font-semibold leading-snug text-steel-100">
-              National Truck Driving School is BPPE approved to operate in California. Enrollment advisors can review payment-plan options and agency or voucher paperwork during consultation.
+              Enrollment advisors can walk through program fit, payment-plan options, agency or voucher paperwork, and the next available class before you commit.
             </p>
           </div>
         </div>
@@ -318,22 +380,30 @@ export function Accreditation() {
   );
 }
 
-export function LeadCTA() {
+type LeadCTAVariant = 'default' | 'placement';
+
+export function LeadCTA({ variant = 'default' }: { variant?: LeadCTAVariant } = {}) {
+  const isPlacement = variant === 'placement';
+
   return (
     <section className="relative overflow-hidden bg-asphalt-900 py-24 text-chrome">
-      <Image src={assets.heroRoadSunset.src} alt={assets.heroRoadSunset.alt} fill sizes="100vw" style={imageStyle(assets.heroRoadSunset)} className="object-cover opacity-42" />
+      <Image src={assets.heroRoadSunset.src} alt={assets.heroRoadSunset.alt} fill sizes="100vw" style={imageStyle(assets.heroRoadSunset)} className="object-cover opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-r from-asphalt-900 via-asphalt-900/88 to-asphalt-900/55" />
       <Container className="relative">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_0.95fr] lg:items-center">
           <div>
             <SectionKicker dark>Free consultation</SectionKicker>
-            <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">Free 15-minute consultation.</h2>
+            <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">
+              {isPlacement ? 'Talk through your next job move.' : 'Free 15-minute consultation.'}
+            </h2>
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-steel-200">
-              Find out about courses, financial aid, and job placement assistance. Call {site.phone} or fill in the form.
+              {isPlacement
+                ? `Tell us your CDL goals and our team can walk through hiring support, application next steps, and companies that may fit your path. Call ${site.phone} or fill in the form.`
+                : `Find out about courses, financial aid, and job placement assistance. Call ${site.phone} or fill in the form.`}
             </p>
           </div>
           <div className="rounded-sm border border-chrome/15 bg-chrome/92 p-5 text-asphalt-900 shadow-hard backdrop-blur lg:p-7">
-            <LeadForm />
+            <LeadForm intent={variant} />
           </div>
         </div>
       </Container>
@@ -345,21 +415,25 @@ export function PageHero({
   kicker,
   title,
   sub,
-  image = assets.heroRoadSunset
+  image = assets.heroRoadSunset,
+  variant = 'standard'
 }: {
   kicker: string;
   title: string;
   sub: string;
   image?: AssetSlot;
+  variant?: PageHeroVariant;
 }) {
+  const style = pageHeroStyles[variant];
+
   return (
-    <section className="relative isolate min-h-[70dvh] overflow-hidden bg-asphalt-900 text-chrome">
-      <Image src={image.src} alt={image.alt} fill priority sizes="100vw" style={imageStyle(image)} className="object-cover opacity-55" />
-      <div className="absolute inset-0 bg-gradient-to-r from-asphalt-900 via-asphalt-900/75 to-asphalt-900/20" />
-      <Container className="relative flex min-h-[70dvh] flex-col justify-center py-20">
+    <section className={cn('relative isolate overflow-hidden bg-asphalt-900 text-chrome', style.section)}>
+      <Image src={image.src} alt={image.alt} fill priority sizes="100vw" style={imageStyle(image)} className={cn('object-cover', style.image)} />
+      <div className={cn('absolute inset-0', style.overlay)} />
+      <Container className={cn('relative flex flex-col justify-center py-20', style.container)}>
         <SectionKicker dark>{kicker}</SectionKicker>
-        <h1 className="mt-4 max-w-4xl font-display text-[3.25rem] uppercase leading-[0.92] tracking-wide sm:text-6xl md:text-7xl lg:text-[7.2rem]">{title}</h1>
-        <p className="mt-6 max-w-2xl text-lg leading-relaxed text-steel-200 md:text-xl">{sub}</p>
+        <h1 className={cn('mt-4 font-display text-[3.25rem] uppercase leading-[0.92] tracking-wide sm:text-6xl md:text-7xl lg:text-[7.2rem]', style.title)}>{title}</h1>
+        <p className={cn('mt-6 text-lg leading-relaxed text-steel-200 md:text-xl', style.copy)}>{sub}</p>
       </Container>
     </section>
   );
@@ -377,7 +451,7 @@ export function AboutPromise() {
             className="aspect-[1858/563] min-h-0"
           />
           <div>
-            <SectionKicker>01 / promise</SectionKicker>
+            <SectionKicker>Promise</SectionKicker>
             <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">Tailored for entry-level and advanced drivers.</h2>
             <p className="mt-6 text-lg leading-relaxed text-asphalt-700">
               We teach the defensive driving techniques required to pass the commercial driver&apos;s license examination. Emphasis is on safety and a thorough understanding of Federal Motor Carrier Safety Rules and regulations for heavy-duty tractor/trailer equipment.
@@ -398,7 +472,7 @@ export function InstructorGrid() {
   return (
     <section className="bg-steel-100 py-24">
       <Container>
-        <SectionKicker>02 / instructors</SectionKicker>
+        <SectionKicker>Instructors</SectionKicker>
         <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide text-asphalt-900 md:text-8xl">Names grads remember.</h2>
         <div className="mt-10 grid gap-5 md:grid-cols-3">
           {instructors.map(([name, image]) => (
@@ -579,8 +653,8 @@ export function PromiseCards() {
       <Container>
         <div className="grid gap-5 lg:grid-cols-2">
           {[
-            ['We help you obtain tuition financial aid and financing.', assets.heroRoadSunset],
-            ['We follow through with job placement assistance.', assets.placement]
+            ['Application support after training.', assets.heroRoadSunset],
+            ['Hiring connections with trucking companies.', assets.placement]
           ].map(([title, image]) => (
             <article key={title as string} className="relative min-h-[440px] overflow-hidden rounded-sm bg-asphalt-900 shadow-hard">
               <Image
@@ -589,10 +663,10 @@ export function PromiseCards() {
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 style={imageStyle(image as AssetSlot)}
-                className="object-cover opacity-88"
+                className="object-cover opacity-90"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-asphalt-900/88 via-asphalt-900/22 to-asphalt-900/5" />
-              <h2 className="absolute bottom-0 max-w-xl p-7 font-display text-6xl uppercase leading-none tracking-wide text-chrome drop-shadow-[0_2px_16px_rgba(0,0,0,0.55)]">
+              <h2 className="absolute bottom-0 max-w-xl p-7 font-display text-6xl uppercase leading-none tracking-wide text-chrome drop-shadow-lg">
                 {title as string}
               </h2>
             </article>
@@ -635,7 +709,7 @@ export function PartnerGrid() {
       <Container>
         <SectionKicker dark>Partner companies</SectionKicker>
         <h2 className="mt-4 font-display text-6xl uppercase leading-none tracking-wide md:text-8xl">Where graduates work.</h2>
-        <p className="mt-5 max-w-2xl text-steel-300">These companies seek our students out, because of our school&apos;s reputation for producing elite, safe truck drivers.</p>
+        <p className="mt-5 max-w-2xl text-steel-300">Our team helps graduates prepare applications, understand hiring expectations, and connect with trucking companies that hire new CDL drivers.</p>
         <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {partners.map((partner) => (
             <a key={partner.name} href={partner.url} className="rounded-sm border border-chrome/10 bg-chrome/5 p-6 transition hover:-translate-y-1 hover:bg-chrome hover:text-asphalt-900">
@@ -690,12 +764,12 @@ export function ContactRail() {
   return (
     <section className="bg-chrome py-20">
       <Container>
-        <div className="grid gap-5 md:grid-cols-3">
+        <div className="grid min-w-0 gap-5 md:grid-cols-3">
           {items.map(([Icon, title, value, copy]) => (
-            <article key={title} className="rounded-sm border border-asphalt-900/10 bg-steel-100 p-7">
+            <article key={title} className="min-w-0 rounded-sm border border-asphalt-900/10 bg-steel-100 p-5 sm:p-7">
               <Icon className="size-8 text-amber-600" />
               <h2 className="mt-5 font-display text-4xl uppercase tracking-wide text-asphalt-900">{title}</h2>
-              <p className="mt-3 text-lg font-bold text-asphalt-900">{value}</p>
+              <p className="mt-3 min-w-0 text-lg font-bold text-asphalt-900 [overflow-wrap:anywhere]">{value}</p>
               <p className="mt-2 text-sm text-asphalt-700">{copy}</p>
             </article>
           ))}
@@ -730,9 +804,9 @@ export function LocationMap() {
             aria-hidden="true"
           >
             <path
-              className="route-draw"
+              className="route-draw text-amber-500"
               d="M30 122 C184 38 333 34 470 112 C624 199 750 119 859 68 C978 12 1080 47 1170 122"
-              stroke="#F5A524"
+              stroke="currentColor"
               strokeWidth="9"
               strokeLinecap="round"
               strokeDasharray="24 24"
@@ -789,10 +863,10 @@ export function TipsList() {
               </article>
             ))}
             <blockquote className="rounded-sm bg-asphalt-900 p-7 text-chrome">
-              <p className="font-display text-5xl uppercase leading-none tracking-wide">National Truck Driving School is BPPE approved to operate in California.</p>
-              <a href="https://www.bppe.ca.gov/" className="mt-5 inline-block font-mono text-xs font-bold uppercase tracking-[0.16em] text-amber-400">
-                Bureau for Private Postsecondary Education
-              </a>
+              <p className="font-display text-5xl uppercase leading-none tracking-wide">Ask clear questions before you enroll, and keep copies of every document you sign.</p>
+              <p className="mt-5 max-w-2xl leading-relaxed text-steel-200">
+                Bring questions about schedule, cost, equipment time, DMV preparation, and job placement support to your consultation.
+              </p>
             </blockquote>
           </div>
         </div>

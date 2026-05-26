@@ -29,10 +29,11 @@ export default function ProgramsPage() {
   return (
     <>
       <PageHero
-        kicker="01 / Training Programs"
+        kicker="Training programs"
         title="The road to your CDL starts here."
         sub="Two CDL classes. Hundreds of hours of real wheel time. One goal: your license."
         image={assets.yard}
+        variant="programs"
       />
       <ClassPicker />
       <CurriculumSplit />

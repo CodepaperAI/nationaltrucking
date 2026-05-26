@@ -1,11 +1,16 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { CalendarCheck, Phone } from 'lucide-react';
 import { site } from '@/content/site';
 import { trackEvent } from '@/lib/analytics';
 
 export function StickyMobileCTA() {
+  const pathname = usePathname();
+
+  if (pathname?.startsWith('/contact')) return null;
+
   return (
     <div className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-2 gap-2 border-t border-asphalt-900/10 bg-chrome/95 p-2 shadow-hard backdrop-blur md:hidden">
       <a

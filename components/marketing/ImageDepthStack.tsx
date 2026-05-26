@@ -21,7 +21,7 @@ export function ImageDepthStack({ id, background, cutout, foreground, kicker, cl
         fill
         sizes="(min-width: 1024px) 45vw, 100vw"
         style={background.position ? { objectPosition: background.position } : undefined}
-        className="object-cover opacity-68"
+        className="object-cover opacity-70"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-asphalt-900 via-asphalt-900/25 to-transparent" />
       {foreground && (
