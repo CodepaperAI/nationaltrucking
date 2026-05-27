@@ -177,8 +177,7 @@ export function TrainingReelsSection() {
                     controls
                     muted
                     playsInline
-                    preload="metadata"
-                    poster={reel.poster.src}
+                    preload="auto"
                     aria-label={reel.title}
                   >
                     <source src={reel.src} type="video/mp4" />

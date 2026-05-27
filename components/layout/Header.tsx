@@ -15,7 +15,7 @@ const navItems = [
   ['About', '/about'],
   ['Programs', '/programs'],
   ['Student Tips', '/student-tips'],
-  ['Job Placement Assistance', '/job-placement'],
+  ['Job Placement', '/job-placement'],
   ['Financial Aid', '/financial-aid'],
   ['Contact', '/contact']
 ] as const;
@@ -27,7 +27,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-asphalt-900/10 bg-chrome text-asphalt-900 backdrop-blur-xl">
       <div className="border-b border-chrome/10 bg-road">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 overflow-hidden px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-steel-300 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-[90rem] items-center justify-between gap-4 overflow-hidden px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-steel-300 sm:px-6 lg:px-8">
           <span className="min-w-0 truncate sm:hidden">San Lorenzo · CDL Training · Español</span>
           <span className="hidden min-w-0 truncate sm:inline">San Lorenzo, CA · CDL Class A & B training · Se Habla Español</span>
           <a
@@ -41,21 +41,21 @@ export function Header() {
         </div>
       </div>
 
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8" aria-label="Main navigation">
-        <Link href="/" className="focus-ring flex items-center gap-3 rounded-sm" aria-label="National Truck Driving School home">
-          <span className="relative flex h-16 w-44 items-center sm:h-[76px] sm:w-56 lg:h-16 lg:w-48 xl:h-[82px] xl:w-64">
+      <nav className="mx-auto flex max-w-[90rem] items-center justify-between gap-5 px-4 py-2.5 sm:px-6 lg:px-8" aria-label="Main navigation">
+        <Link href="/" className="focus-ring flex shrink-0 items-center gap-3 rounded-sm" aria-label="National Truck Driving School home">
+          <span className="relative flex aspect-[512/228] w-48 shrink-0 items-center sm:w-56 xl:w-64 2xl:w-72">
             <Image
               src={assets.logo.src}
               alt={assets.logo.alt}
               fill
-              sizes="(min-width: 1280px) 256px, (min-width: 1024px) 192px, (min-width: 640px) 224px, 176px"
+              sizes="(min-width: 1536px) 288px, (min-width: 1280px) 256px, (min-width: 640px) 224px, 192px"
               className="object-contain"
               priority
             />
           </span>
         </Link>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden min-w-0 flex-1 items-center justify-center gap-1 xl:flex">
           {navItems.map(([label, href]) => {
             const active = href === '/' ? pathname === href : pathname?.startsWith(href);
             return (
@@ -63,7 +63,7 @@ export function Header() {
                 href={href}
                 key={href}
                 className={cn(
-                  'focus-ring rounded-sm px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] transition',
+                  'focus-ring whitespace-nowrap rounded-sm px-2.5 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.14em] transition 2xl:px-3 2xl:text-[11px] 2xl:tracking-[0.16em]',
                   active ? 'bg-asphalt-900 text-chrome' : 'text-asphalt-500 hover:text-asphalt-900'
                 )}
               >
@@ -73,21 +73,21 @@ export function Header() {
           })}
         </div>
 
-        <div className="hidden items-center gap-3 lg:flex">
+        <div className="hidden shrink-0 items-center gap-2 xl:flex 2xl:gap-3">
           <Link
             href="/es"
-            className="focus-ring rounded-sm border border-asphalt-900/20 px-3 py-2 font-mono text-[11px] font-bold uppercase tracking-[0.16em] text-asphalt-900 transition hover:bg-asphalt-900 hover:text-chrome"
+            className="focus-ring rounded-sm border border-asphalt-900/20 px-3 py-3 font-mono text-[10px] font-bold uppercase tracking-[0.14em] text-asphalt-900 transition hover:bg-asphalt-900 hover:text-chrome 2xl:text-[11px] 2xl:tracking-[0.16em]"
           >
             ES
           </Link>
-          <Button href="/contact" magnetic eventLabel="header_book">
+          <Button href="/contact" magnetic eventLabel="header_book" className="min-h-11 px-4 py-3 text-[10px] tracking-[0.14em] 2xl:px-5 2xl:text-xs 2xl:tracking-[0.18em]">
             Book
           </Button>
         </div>
 
         <button
           type="button"
-          className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border border-asphalt-900/20 text-asphalt-900 lg:hidden"
+          className="focus-ring inline-flex min-h-11 min-w-11 items-center justify-center rounded-sm border border-asphalt-900/20 text-asphalt-900 xl:hidden"
           aria-expanded={open}
           aria-controls="mobile-menu"
           onClick={() => setOpen((value) => !value)}
@@ -98,7 +98,7 @@ export function Header() {
       </nav>
 
       {open && (
-        <div id="mobile-menu" className="border-t border-asphalt-900/10 bg-chrome px-4 pb-5 pt-2 lg:hidden">
+        <div id="mobile-menu" className="border-t border-asphalt-900/10 bg-chrome px-4 pb-5 pt-2 xl:hidden">
           <div className="grid gap-2">
             {navItems.map(([label, href]) => (
               <Link
