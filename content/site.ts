@@ -264,8 +264,8 @@ export const seoPages: Record<string, SeoPage> = {
   },
   tips: {
     path: '/student-tips',
-    title: '12 Tips for Choosing a Truck Driving School',
-    description: 'Read our tips before enrolling at a private postsecondary school. National Truck Driving School.'
+    title: '8 Tips for Choosing a Truck Driving School',
+    description: 'Read practical tips before enrolling at a truck driving school. National Truck Driving School.'
   },
   contact: {
     path: '/contact',
@@ -426,61 +426,37 @@ export const studentTips: StudentTip[] = [
       'Before enrolling, confirm what license, certificate, or DMV preparation the program supports. Ask how the training hours, equipment, testing preparation, and refund policies are documented.'
   },
   {
-    eyebrow: '03 / CATALOG',
-    title: 'Get a copy of the student catalog',
-    body:
-      "A school's catalog contains important information that you will need to review prior to making a decision to enroll. Pay special attention to school policies, such as attendance, leave-of-absence, cancellation and refund."
-  },
-  {
-    eyebrow: '04 / AGREEMENT',
+    eyebrow: '03 / AGREEMENT',
     title: 'Get a copy of an enrollment agreement',
     body:
       "An enrollment agreement should reflect information about the school's total costs for the contracted-for course of instruction, a list of the charges that are non-refundable, the name and description of the program of instruction, the total amount of classes or hours needed to complete the program, payment schedules, cancellation and refund policies, and other mandatory disclosures regarding your rights and responsibilities as a student at the institution. (Education Code section 94810.)"
   },
   {
-    eyebrow: '05 / READINESS',
+    eyebrow: '04 / READINESS',
     title: 'Verify the school and program details',
     body:
       'Before enrolling, confirm the exact program, schedule, total cost, included training hours, and any documents you need to review.'
   },
   {
-    eyebrow: '06 / ADVERTISING',
+    eyebrow: '05 / ADVERTISING',
     title: 'Review all advertising carefully',
     body:
       'Make sure that the school is being truthful in what has been advertised. Watch out for hidden costs and promises that seem too good to be true.'
   },
   {
-    eyebrow: '07 / OUTCOMES',
-    title: "Request to see the school's completion and job placement rates",
-    body:
-      'A "student performance fact sheet" enables you to check to see whether students are staying in the class and finishing the course, and whether the school is assisting students in finding jobs after they have completed the course.'
-  },
-  {
-    eyebrow: '08 / DOCUMENTS',
-    title: 'Find out what the school needs from you',
-    body:
-      'If you are transferring from another school or enrolling for the first time at a post-secondary school, make sure you inquire as to what documents you will need to submit when you enroll.'
-  },
-  {
-    eyebrow: '09 / AID',
+    eyebrow: '06 / AID',
     title: 'Make sure you understand the payment plan',
     body:
       'Ask for the total cost, starter payment, installment schedule, and any paperwork requirements in writing before you enroll.'
   },
   {
-    eyebrow: '10 / WRITING',
-    title: 'Get everything in writing',
-    body:
-      'Never accept a promise to deliver a service verbally. Make sure all contracted-for services are in writing and signed by a school official before you sign the enrollment agreement.'
-  },
-  {
-    eyebrow: '11 / COPIES',
+    eyebrow: '07 / COPIES',
     title: 'Keep a copy of your documents',
     body:
       "If you decide to enroll in a private postsecondary school, be sure to keep a copy of all contracts, policies, catalogs, disciplinary actions, attendance records, letters you've written to the school, etc. In the future, you may need to verify your payment obligations, any refunds owed to you by the school, or the educational services that you contracted to receive from the school."
   },
   {
-    eyebrow: '12 / EXPERIENCE',
+    eyebrow: '08 / EXPERIENCE',
     title: 'Enjoy your educational experience',
     body: 'Choose a school that keeps expectations clear, answers your questions directly, and supports you through training and DMV test preparation.'
   }
